@@ -19,6 +19,12 @@ export default Service.extend({
       case 'report':
         this.notiflix.Report.Merge(options);
         break;
+      case 'confirm':
+        this.notiflix.Confirm.Merge(options);
+        break;
+      case 'loading':
+        this.notiflix.Loading.Merge(options);
+        break;
       default:
         break;
     }
@@ -38,6 +44,7 @@ export default Service.extend({
         this.notiflix.Notify.Info(message, callback);
         break;
       default:
+        this.notiflix.Notify.Success(message, callback);
         break;
     }
   },
@@ -56,6 +63,7 @@ export default Service.extend({
         this.notiflix.Report.Info(title, message, btnText, callback);
         break;
       default:
+        this.notiflix.Report.Success(title, message, btnText, callback);
         break;
     }
   },
