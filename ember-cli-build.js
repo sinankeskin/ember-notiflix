@@ -14,8 +14,9 @@ module.exports = function(defaults) {
     behave. You most likely want to be modifying `./index.js` or app's build file
   */
 
-  app.import('node_modules/notiflix/notiflix-1.3.0.min.css');
-  app.import('node_modules/notiflix/notiflix-1.3.0.min.js');
+  // Notiflix 1.5.0
+  app.import('node_modules/notiflix/dist/notiflix-1.5.0.min.css');
+  app.import('node_modules/notiflix/dist/notiflix-1.5.0.min.js');
 
   return app.toTree();
 };
