@@ -74,9 +74,9 @@ See the [Contributing](CONTRIBUTING.md) guide for details.
 
 TODO
 ------------------------------------------------------------------------------
-[ ] Custom Loading
-[ ] Loading change
-[ ] Loading remove
+- [ ] Custom Loading
+- [ ] Loading change
+- [ ] Loading remove
 
 License
 ------------------------------------------------------------------------------
