@@ -1,11 +1,18 @@
 {
   "name": "ember-notiflix",
-  "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "version": "0.0.1",
+  "description": "Notiflix wrapper for Ember.js",
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "notiflix",
+    "ember-notiflix",
+    "alert",
+    "notify",
+    "report",
+    "confirm",
+    "loading"
   ],
-  "repository": "",
+  "repository": "https://github.com/sinankeskin/ember-notiflix",
   "license": "MIT",
   "author": "",
   "directories": {

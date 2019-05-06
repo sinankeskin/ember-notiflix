@@ -1,7 +1,7 @@
 ember-notiflix
 ==============================================================================
 
-[Short description of the addon.]
+This addon provides all Notiflix functionalities.
 
 
 Compatibility
