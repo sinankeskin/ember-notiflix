@@ -1,6 +1,6 @@
 {
   "name": "ember-notiflix",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Notiflix wrapper for Ember.js",
   "keywords": [
     "ember-addon",
