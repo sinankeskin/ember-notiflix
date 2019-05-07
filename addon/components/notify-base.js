@@ -9,10 +9,6 @@ export default Component.extend({
   onClick: null,
   init() {
     this._super(...arguments);
-    this.notiflix.merge('notify', {
-      width: '240px',
-      fontSize: '24px'
-    });
   },
   didInsertElement() {
     this._super(...arguments);

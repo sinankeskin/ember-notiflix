@@ -6,13 +6,8 @@ export default Component.extend({
   tagName: '',
   type: '',
   message: '',
-  onClick: null,
   init() {
     this._super(...arguments);
-    this.notiflix.merge('loading', {
-      width: '240px',
-      fontSize: '24px'
-    });
   },
   didInsertElement() {
     this._super(...arguments);
@@ -20,5 +15,11 @@ export default Component.extend({
   },
   _displayLoading() {
     this.notiflix.loading(this.type, this.message);
+  },
+  change(message) {
+    this.notiflix.Loading.Change(message);
+  },
+  remove(delay) {
+    this.notiflix.Loading.Remove(delay);
   }
 });

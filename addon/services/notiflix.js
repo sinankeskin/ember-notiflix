@@ -96,6 +96,9 @@ export default Service.extend({
       case 'pulse':
         this.notiflix.Loading.Pulse(message);
         break;
+      case 'custom':
+        this.notiflix.Loading.Custom(message);
+        break;
       default:
         this.notiflix.Loading.Standard(message);
         break;
