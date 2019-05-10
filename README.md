@@ -50,7 +50,7 @@ ENV['ember-notiflix'] = {
 In your code, you can override the initial global settings via merge functions in any time.
 
 ### Merge
-##### Base - ( You can change the type with one of these values: notify, report, laoding, confirm )
+##### Base - ( You can change the type with one of these values: notify, report, loading, confirm )
 ``` javascript
 this.notiflix.merge('notify', {
   width: '300px',
