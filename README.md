@@ -303,11 +303,11 @@ See the [Contributing](CONTRIBUTING.md) guide for details.
 
 TODO
 ------------------------------------------------------------------------------
-- [ ] Custom Loading
-- [ ] Loading change
-- [ ] Loading remove
-- [ ] Initial settings
-- [ ] Merge functions
+- [X] Custom Loading
+- [X] Loading change
+- [X] Loading remove
+- [X] Initial settings
+- [X] Merge functions
 
 License
 ------------------------------------------------------------------------------
