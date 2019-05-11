@@ -1,6 +1,7 @@
 import Service from '@ember/service';
 import { getOwner } from '@ember/application';
 import { computed } from '@ember/object';
+import { assert } from '@ember/debug';
 
 export default Service.extend({
   notiflix: null,
@@ -13,10 +14,16 @@ export default Service.extend({
     this._super(...arguments);
 
     this.notiflix = this.notiflix || (window ? window.Notiflix : null);
-    this.notiflix.Notify.Init(this.config['notify']);
-    this.notiflix.Report.Init(this.config['report']);
-    this.notiflix.Loading.Init(this.config['loading']);
-    this.notiflix.Confirm.Init(this.config['confirm']);
+
+    assert(
+      "Seems like Notiflix library couldn't bind to the window object. Try npm install.",
+      this.notiflix != null
+    );
+
+    this.notiflix.Notify.Init(this.config['notify'] || {});
+    this.notiflix.Report.Init(this.config['report'] || {});
+    this.notiflix.Loading.Init(this.config['loading'] || {});
+    this.notiflix.Confirm.Init(this.config['confirm'] || {});
   },
   merge(type, options) {
     switch (type) {
