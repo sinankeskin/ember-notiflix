@@ -1,7 +1,7 @@
 {
   "name": "ember-notiflix",
   "version": "0.0.6",
-  "description": "Notiflix wrapper for Ember.js",
+  "description": "This addon provides all Notiflix functionalities (notify, report, loading and confirm) and Notiflix (https://www.notiflix.com) is a pure JavaScript notification library with no dependency.",
   "keywords": [
     "ember-addon",
     "notiflix",
@@ -14,7 +14,7 @@
   ],
   "repository": "https://github.com/sinankeskin/ember-notiflix",
   "license": "MIT",
-  "author": "",
+  "author": "Sinan Keskin <sinan@kesk.in> (https://kesk.in)",
   "directories": {
     "doc": "doc",
     "test": "tests"

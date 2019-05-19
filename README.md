@@ -1,7 +1,7 @@
 ember-notiflix
 ==============================================================================
 
-This addon provides all Notiflix functionalities and [Notiflix](https://www.notiflix.com/) is a pure JavaScript notification library with no dependency.
+This addon provides all Notiflix functionalities (notify, report, loading and confirm) and [Notiflix](https://www.notiflix.com/) is a pure JavaScript notification library with no dependency.
 
 This addon expose all functionalities as an Ember Service. If you want to reach all functions (in your controllers, components or routes) you should inject the service to your code like down below.
 
@@ -30,6 +30,8 @@ ember install ember-notiflix
 ```
 Configuration
 ------------------------------------------------------------------------------
+
+> First of all, don't forget to remove **ember-welcome-page** package from your project package.json.
 
 You can change all initial global configuration settings via `config/environment.js` file. Notice that seperate notify, report, loading and confirm sections.
 
