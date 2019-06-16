@@ -5,8 +5,8 @@ module.exports = {
 
   included(app) {
     this._super.included.apply(this, arguments);
-    // Notiflix 1.5.0 CSS + JS
-    app.import('node_modules/notiflix/dist/notiflix-1.5.0.min.css');
-    app.import('node_modules/notiflix/dist/notiflix-1.5.0.min.js');
+    // Notiflix 1.6.0 CSS + JS
+    app.import('node_modules/notiflix/dist/notiflix-1.6.0.min.css');
+    app.import('node_modules/notiflix/dist/notiflix-1.6.0.min.js');
   }
 };
