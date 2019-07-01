@@ -1,6 +1,6 @@
 {
   "name": "ember-notiflix",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "description": "Ember addon for Notiflix notification library.",
   "keywords": [
     "ember-addon",
