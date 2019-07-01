@@ -7,7 +7,8 @@ export default Component.extend({
   message: '',
   okBtnText: '',
   cancelBtnText: '',
-  onClick: null,
+  okClick: null,
+  cancelClick: null,
   init() {
     this._super(...arguments);
   },
@@ -21,7 +22,8 @@ export default Component.extend({
       this.message,
       this.okBtnText,
       this.cancelBtnText,
-      this.onClick
+      this.okClick,
+      this.cancelClick
     );
   }
 });

@@ -330,15 +330,17 @@ export default Service.extend({
    * @param {string} message Message to show
    * @param {string} okBtnText OK button text on screen
    * @param {string} cancelBtnText Cancel button text on screen
-   * @param {function} callback onClick callback function
+   * @param {function} okClick okClick callback function
+   * @param {function} cancelClick cancelClick callback function
    */
-  confirm(title, message, okBtnText, cancelBtnText, callback) {
+  confirm(title, message, okBtnText, cancelBtnText, okClick, cancelClick) {
     this.notiflix.Confirm.Show(
       title,
       message,
       okBtnText,
       cancelBtnText,
-      callback
+      okClick,
+      cancelClick
     );
   }
 });

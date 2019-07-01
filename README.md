@@ -291,7 +291,8 @@ this.notiflix.loadingRemove(600); // milliseconds
     message="Do you agree with me?"
     okBtnText="Yes"
     cancelBtnText="No"
-    onClick=(action "showAlert" "Message")}}
+    okClick=(action "showAlert" "Message")
+    cancelClick=(action "showAlert" "Message")}}
 ```
 ``` javascript
 this.notiflix.confirm(title, message, okBtnText, cancelBtnText, callback);
@@ -310,6 +311,7 @@ TODO
 - [X] Loading remove
 - [X] Initial settings
 - [X] Merge functions
+- [X] Confirm cancel callback (onClick changed to okClick)
 
 License
 ------------------------------------------------------------------------------
