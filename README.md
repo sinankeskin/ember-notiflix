@@ -295,7 +295,7 @@ this.notiflix.loadingRemove(600); // milliseconds
     cancelClick=(action "showAlert" "Message")}}
 ```
 ``` javascript
-this.notiflix.confirm(title, message, okBtnText, cancelBtnText, callback);
+this.notiflix.confirm(title, message, okBtnText, cancelBtnText, okClick, cancelClick);
 ```
 
 Contributing
