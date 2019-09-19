@@ -1,13 +1,18 @@
 'use strict';
 
+var paket = require('./package');
+
 module.exports = {
-  name: require('./package').name,
+  name: paket.name,
 
   included(app) {
     this._super.included.apply(this, arguments);
 
-    // Notiflix 1.8.0 CSS + JS
-    app.import('node_modules/notiflix/dist/notiflix-1.8.0.css');
-    app.import('node_modules/notiflix/dist/notiflix-1.8.0.js');
+    // Notiflix CSS + JS
+    ['css', 'js'].forEach(ext => {
+      app.import(
+        `node_modules/notiflix/dist/Unminified/notiflix-${paket.dependencies.notiflix}.${ext}`
+      );
+    });
   }
 };
