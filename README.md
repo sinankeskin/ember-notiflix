@@ -95,10 +95,12 @@ Usage
 ### Notify
 ##### Base - ( You can change the type with one of these values: success[default], failure, warning, info )
 ``` handlebars
-{{notify-base
-    type="success"
-    message="Success"
-    onClick=(action "showAlert" "Message")}}
+{{!--
+    Since Ember 3.4 we can create a component without a dash in name,
+    all "-base" named components will be deprecated next major release.
+--}}
+<Notify @type="success" @message="Success" @onClick={{action "showAlert" "Message"}} />
+<NotifyBase @type="success" @message="Success" @onClick={{action "showAlert" "Message"}} />
 ```
 ``` javascript
 this.notiflix.notify(type, message, callback);
@@ -106,9 +108,7 @@ this.notiflix.notify(type, message, callback);
 
 ##### Success
 ``` handlebars
-{{notify-success
-    message="Success"
-    onClick=(action "showAlert" "Message")}}
+<NotifySuccess @message="Success" @onClick={{action "showAlert" "Message"}} />
 ```
 ``` javascript
 this.notiflix.notifySuccess(message, callback);
@@ -116,9 +116,7 @@ this.notiflix.notifySuccess(message, callback);
 
 ##### Failure
 ``` handlebars
-{{notify-failure
-    message="Failure"
-    onClick=(action "showAlert" "Message")}}
+<NotifyFailure @message="Success" @onClick={{action "showAlert" "Message"}} />
 ```
 ``` javascript
 this.notiflix.notifyFailure(message, callback);
@@ -126,9 +124,7 @@ this.notiflix.notifyFailure(message, callback);
 
 ##### Warning
 ``` handlebars
-{{notify-warning
-    message="Warning"
-    onClick=(action "showAlert" "Message")}}
+<NotifyWarning @message="Success" @onClick={{action "showAlert" "Message"}} />
 ```
 ``` javascript
 this.notiflix.notifyWarning(message, callback);
@@ -136,9 +132,7 @@ this.notiflix.notifyWarning(message, callback);
 
 ##### Info
 ``` handlebars
-{{notify-info
-    message="Info"
-    onClick=(action "showAlert" "Message")}}
+<NotifyInfo @message="Success" @onClick={{action "showAlert" "Message"}} />
 ```
 ``` javascript
 this.notiflix.notifyInfo(message, callback);
@@ -147,12 +141,12 @@ this.notiflix.notifyInfo(message, callback);
 ### Report
 ##### Base - ( You can change the type with one of these values: success[default], failure, warning, info )
 ``` handlebars
-{{report-base
-    type="success"
-    title="Success"
-    message="Message"
-    btnText="OK"
-    onClick=(action "showAlert" "Message")}}
+{{!--
+    Since Ember 3.4 we can create a component without a dash in name,
+    all "-base" named components will be deprecated next major release.
+--}}
+<Report @type="success" title="Success" @message="Message" @btnText="OK" @onClick={{action "showAlert" "Message"}} />
+<ReportBase @type="success" title="Success" @message="Message" @btnText="OK" @onClick={{action "showAlert" "Message"}} />
 ```
 ``` javascript
 this.notiflix.report(type, title, message, btnText, callback);
@@ -160,11 +154,7 @@ this.notiflix.report(type, title, message, btnText, callback);
 
 ##### Success
 ``` handlebars
-{{report-success
-    title="Success"
-    message="Message"
-    btnText="OK"
-    onClick=(action "showAlert" "Message")}}
+<ReportSuccess title="Success" @message="Message" @btnText="OK" @onClick={{action "showAlert" "Message"}} />
 ```
 ``` javascript
 this.notiflix.reportSuccess(title, message, btnText, callback);
@@ -172,30 +162,21 @@ this.notiflix.reportSuccess(title, message, btnText, callback);
 
 ##### Failure
 ``` handlebars
-{{report-failure
-    title="Failure"
-    message="Message"
-    btnText="OK"}}
+<ReportFailure title="Success" @message="Message" @btnText="OK" @onClick={{action "showAlert" "Message"}} />
 ```
 ``` javascript
 this.notiflix.reportFailure(title, message, btnText, callback);
 ```
 ##### Warning
 ``` handlebars
-{{report-warning
-    title="Warning"
-    message="Message"
-    btnText="OK"}}
+<ReportWarning title="Success" @message="Message" @btnText="OK" @onClick={{action "showAlert" "Message"}} />
 ```
 ``` javascript
 this.notiflix.reportWarning(title, message, btnText, callback);
 ```
 ##### Info
 ``` handlebars
-{{report-info
-    title="Info"
-    message="Message"
-    btnText="OK"}}
+<ReportInfo title="Success" @message="Message" @btnText="OK" @onClick={{action "showAlert" "Message"}} />
 ```
 ``` javascript
 this.notiflix.reportInfo(title, message, btnText, callback);
@@ -204,65 +185,61 @@ this.notiflix.reportInfo(title, message, btnText, callback);
 ### Loading
 ##### Base - ( You can change the type with one of these values: standard[default], hourglass, circle, arrows, dots, pulse )
 ``` handlebars
-{{loading-base
-    type="standard"
-    message="Loading..."}}
+{{!--
+    Since Ember 3.4 we can create a component without a dash in name,
+    all "-base" named components will be deprecated next major release.
+--}}
+<Loading @type="standard" @message="Loading..." />
+<LoadingBase @type="standard" @message="Loading..." />
 ```
 ``` javascript
 this.notiflix.loading(type, message);
 ```
 ##### Standard
 ``` handlebars
-{{loading-standard
-    message="Loading..."}}
+<LoadingStandard @message="Loading..." />
 ```
 ``` javascript
 this.notiflix.loadingStandard(message);
 ```
 ##### Hourglass
 ``` handlebars
-{{loading-hourglass
-    message="Loading..."}}
+<LoadingHourglass @message="Loading..." />
 ```
 ``` javascript
 this.notiflix.loadingHourglass(message);
 ```
 ##### Circle
 ``` handlebars
-{{loading-circle
-    message="Loading..."}}
+<LoadingCircle @message="Loading..." />
 ```
 ``` javascript
 this.notiflix.loadingCircle(message);
 ```
 ##### Arrows
 ``` handlebars
-{{loading-arrows
-    message="Loading..."}}
+<LoadingArrows @message="Loading..." />
 ```
 ``` javascript
 this.notiflix.loadingArrows(message);
 ```
 ##### Dots
 ``` handlebars
-{{loading-dots
-    message="Loading..."}}
+<LoadingDots @message="Loading..." />
 ```
 ``` javascript
 this.notiflix.loadingDots(message);
 ```
 ##### Pulse
 ``` handlebars
-{{loading-pulse
-    message="Loading..."}}
+<LoadingPulse @message="Loading..." />
 ```
 ``` javascript
 this.notiflix.loadingPulse(message);
 ```
 ##### Custom
 ``` handlebars
-{{loading-custom
-    message="Loading..."}}
+<LoadingCustom @message="Loading..." />
 ```
 ``` javascript
 this.notiflix.loadingCustom(message);
@@ -286,13 +263,12 @@ this.notiflix.loadingRemove(600); // milliseconds
 ### Confirm
 ##### Base
 ``` handlebars
-{{confirm-base
-    title="Notiflix Confirm"
-    message="Do you agree with me?"
-    okBtnText="Yes"
-    cancelBtnText="No"
-    okClick=(action "showAlert" "Message")
-    cancelClick=(action "showAlert" "Message")}}
+{{!--
+    Since Ember 3.4 we can create a component without a dash in name,
+    all "-base" named components will be deprecated next major release.
+--}}
+<Confirm title="Notiflix Confirm" @message="Do you agree with me?" @okBtnText="Yes" @cancelBtnText="No" @onClick={{action "showAlert" "Message"}} />
+<ConfirmBase title="Notiflix Confirm" @message="Do you agree with me?" @okBtnText="Yes" @cancelBtnText="No" @onClick={{action "showAlert" "Message"}} />
 ```
 ``` javascript
 this.notiflix.confirm(title, message, okBtnText, cancelBtnText, okClick, cancelClick);

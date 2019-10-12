@@ -1,24 +1,32 @@
 <h2 id="title">Welcome to Ember</h2>
 
-{{notify-base type="success" message="Success" onClick=(action "showAlert" "Message")}}
-{{notify-success message="Success" onClick=(action "showAlert" "Message")}}
-{{notify-failure message="Failure"}}
-{{notify-warning message="Warning"}}
-{{notify-info message="Info"}}
+<Notify @type="success" @message="Success" @onClick={{action "showAlert" "Message"}} />
+{{!--
+    Since Ember 3.4 we can create a component without a dash in name,
+    "-base" named components will be deprecated next major release.
+--}}
+<NotifyBase @type="success" @message="Success" @onClick={{action "showAlert" "Message"}} />
+<NotifySuccess @message="Success" @onClick={{action "showAlert" "Message"}} />
+<NotifyFailure @message="Failure" />
+<NotifyWarning @message="Warning" />
+<NotifyInfo @message="Info" />
 
-{{report-base type="success" title="Success" message="Message" btnText="OK" onClick=(action "showAlert" "Message")}}
-{{report-success title="Success" message="Message" btnText="OK" onClick=(action "showAlert" "Message")}}
-{{report-failure title="Failure" message="Message" btnText="OK"}}
-{{report-warning title="Warning" message="Message" btnText="OK"}}
-{{report-info title="Info" message="Message" btnText="OK"}}
+<Report @type="success" title="Success" @message="Message" @btnText="OK" @onClick={{action "showAlert" "Message"}} />
+<ReportBase @type="success" title="Success" @message="Message" @btnText="OK" @onClick={{action "showAlert" "Message"}} />
+<ReportSuccess title="Success" @message="Message" @btnText="OK" @onClick={{action "showAlert" "Message"}} />
+<ReportFailure title="Failure" @message="Message" @btnText="OK" />
+<ReportWarning title="Warning" @message="Message" @btnText="OK" />
+<ReportInfo title="Info" @message="Message" @btnText="OK" />
 
-{{loading-base type="standard" message="Loading..."}}
-{{loading-standard message="Loading..."}}
-{{loading-hourglass message="Loading..."}}
-{{loading-circle message="Loading..."}}
-{{loading-arrows message="Loading..."}}
-{{loading-dots message="Loading..."}}
-{{loading-pulse message="Loading..."}}
-{{loading-custom message="Loading..."}}
+<Loading @type="standard" @message="Loading..." />
+<LoadingBase @type="standard" @message="Loading..." />
+<LoadingStandard @message="Loading..." />
+<LoadingHourglass @message="Loading..." />
+<LoadingCircle @message="Loading..." />
+<LoadingArrows @message="Loading..." />
+<LoadingDots @message="Loading..." />
+<LoadingPulse @message="Loading..." />
+<LoadingCustom @message="Loading..." />
 
-{{confirm-base title="Notiflix Confirm" message="Do you agree with me?" okBtnText="Yes" cancelBtnText="No" onClick=(action "showAlert" "Message")}}
+<Confirm title="Notiflix Confirm" @message="Do you agree with me?" @okBtnText="Yes" @cancelBtnText="No" @onClick={{action "showAlert" "Message"}} />
+<ConfirmBase title="Notiflix Confirm" @message="Do you agree with me?" @okBtnText="Yes" @cancelBtnText="No" @onClick={{action "showAlert" "Message"}} />

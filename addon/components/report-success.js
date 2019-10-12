@@ -1,5 +1,5 @@
-import ReportBase from './report-base';
+import Report from './report';
 
-export default ReportBase.extend({
+export default Report.extend({
   type: 'success'
 });

@@ -1,5 +1,5 @@
-import NotifyBase from './notify-base'
+import Notify from './notify';
 
-export default NotifyBase.extend({
+export default Notify.extend({
   type: 'info'
 });

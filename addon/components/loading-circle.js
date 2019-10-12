@@ -1,5 +1,5 @@
-import LoadingBase from './loading-base';
+import Loading from './loading';
 
-export default LoadingBase.extend({
+export default Loading.extend({
   type: 'circle'
 });
