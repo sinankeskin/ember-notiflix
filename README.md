@@ -116,7 +116,7 @@ this.notiflix.notifySuccess(message, callback);
 
 ##### Failure
 ``` handlebars
-<NotifyFailure @message="Success" @onClick={{action "showAlert" "Message"}} />
+<NotifyFailure @message="Failure" @onClick={{action "showAlert" "Message"}} />
 ```
 ``` javascript
 this.notiflix.notifyFailure(message, callback);
@@ -124,7 +124,7 @@ this.notiflix.notifyFailure(message, callback);
 
 ##### Warning
 ``` handlebars
-<NotifyWarning @message="Success" @onClick={{action "showAlert" "Message"}} />
+<NotifyWarning @message="Warning" @onClick={{action "showAlert" "Message"}} />
 ```
 ``` javascript
 this.notiflix.notifyWarning(message, callback);
@@ -132,7 +132,7 @@ this.notiflix.notifyWarning(message, callback);
 
 ##### Info
 ``` handlebars
-<NotifyInfo @message="Success" @onClick={{action "showAlert" "Message"}} />
+<NotifyInfo @message="Info" @onClick={{action "showAlert" "Message"}} />
 ```
 ``` javascript
 this.notiflix.notifyInfo(message, callback);
@@ -162,21 +162,21 @@ this.notiflix.reportSuccess(title, message, btnText, callback);
 
 ##### Failure
 ``` handlebars
-<ReportFailure title="Success" @message="Message" @btnText="OK" @onClick={{action "showAlert" "Message"}} />
+<ReportFailure title="Failure" @message="Message" @btnText="OK" @onClick={{action "showAlert" "Message"}} />
 ```
 ``` javascript
 this.notiflix.reportFailure(title, message, btnText, callback);
 ```
 ##### Warning
 ``` handlebars
-<ReportWarning title="Success" @message="Message" @btnText="OK" @onClick={{action "showAlert" "Message"}} />
+<ReportWarning title="Warning" @message="Message" @btnText="OK" @onClick={{action "showAlert" "Message"}} />
 ```
 ``` javascript
 this.notiflix.reportWarning(title, message, btnText, callback);
 ```
 ##### Info
 ``` handlebars
-<ReportInfo title="Success" @message="Message" @btnText="OK" @onClick={{action "showAlert" "Message"}} />
+<ReportInfo title="Info" @message="Message" @btnText="OK" @onClick={{action "showAlert" "Message"}} />
 ```
 ``` javascript
 this.notiflix.reportInfo(title, message, btnText, callback);
