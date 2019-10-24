@@ -33,7 +33,7 @@
     "notiflix": "1.9.1"
   },
   "devDependencies": {
-    "@ember/optional-features": "^1.0.0",
+    "@ember/optional-features": "^1.1.0",
     "babel-eslint": "^10.0.3",
     "broccoli-asset-rev": "^3.0.0",
     "ember-cli": "~3.13.1",
@@ -52,7 +52,7 @@
     "ember-source": "~3.13.0",
     "ember-source-channel-url": "^2.0.1",
     "ember-try": "^1.2.1",
-    "eslint-plugin-ember": "^7.1.0",
+    "eslint-plugin-ember": "^7.2.0",
     "eslint-plugin-node": "^10.0.0",
     "loader.js": "^4.7.0",
     "qunit-dom": "^0.9.0"
