@@ -1,6 +1,13 @@
+/** @documenter yuidoc */
 import Component from '@ember/component';
 import { inject as service } from '@ember/service';
 
+/**
+ * Confirm component
+ *
+ * @class Confirm
+ * @public
+ */
 export default Component.extend({
   notiflix: service(),
   title: '',
