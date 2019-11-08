@@ -3,13 +3,33 @@ import { getOwner } from '@ember/application';
 import { computed } from '@ember/object';
 import { assert } from '@ember/debug';
 
+/**
+ * Notiflix service
+ *
+ * Service that responsible for notify, report, loading and confirm functionalities.
+ *
+ * Usage:
+ *
+ * ```javascript
+ * import Component from '@ember/component';
+ * import { inject as service } from '@ember/service';
+ *
+ * export default Component.extend({
+ *  notiflix: service()
+ * }
+ * ```
+ * @class Notiflix
+ * @public
+ */
 export default Service.extend({
   notiflix: null,
+
   config: computed(function() {
     let config = getOwner(this).resolveRegistration('config:environment') || {};
 
     return config['ember-notiflix'] || {};
   }),
+
   init() {
     this._super(...arguments);
 
@@ -25,9 +45,11 @@ export default Service.extend({
     this.notiflix.Loading.Init(this.config['loading'] || {});
     this.notiflix.Confirm.Init(this.config['confirm'] || {});
   },
+
   /**
    * Base merge function for override initial settings.
    *
+   * @method merge
    * @param {'notify'|'report'|'loading'|'confirm'} type Type of function to call
    * @param {object} options Options to override
    */
@@ -52,6 +74,7 @@ export default Service.extend({
   /**
    * Notify functionality only merge function for override initial settings.
    *
+   * @method notifyMerge
    * @param {object} options Options to override
    */
   notifyMerge(options) {
@@ -60,6 +83,7 @@ export default Service.extend({
   /**
    * Report functionality only merge function for override initial settings.
    *
+   * @method reportMerge
    * @param {object} options Options to override
    */
   reportMerge(options) {
@@ -68,6 +92,7 @@ export default Service.extend({
   /**
    * Loading functionality only merge function for override initial settings.
    *
+   * @method loadingMerge
    * @param {object} options Options to override
    */
   loadingMerge(options) {
@@ -76,6 +101,7 @@ export default Service.extend({
   /**
    * Confirm functionality only merge function for override initial settings.
    *
+   * @method confirmMerge
    * @param {object} options Options to override
    */
   confirmMerge(options) {
@@ -84,6 +110,9 @@ export default Service.extend({
   /**
    * Base notify function.
    *
+   * Default Type: 'success'
+   *
+   * @method notify
    * @param {'success'|'failure'|'warning'|'info'} type Type of function to call
    * @param {string} message Message to show
    * @param {function} callback onClick callback function
@@ -110,6 +139,7 @@ export default Service.extend({
   /**
    * Success notify function
    *
+   * @method notifySuccess
    * @param {string} message Message to show
    * @param {function} callback onClick callback function
    */
@@ -119,6 +149,7 @@ export default Service.extend({
   /**
    * Failure notify function
    *
+   * @method notifyFailure
    * @param {string} message Message to show
    * @param {function} callback onClick callback function
    */
@@ -128,6 +159,7 @@ export default Service.extend({
   /**
    * Warning notify function
    *
+   * @method notifyWarning
    * @param {string} message Message to show
    * @param {function} callback onClick callback function
    */
@@ -137,6 +169,7 @@ export default Service.extend({
   /**
    * Info notify function
    *
+   * @method notifyInfo
    * @param {string} message Message to show
    * @param {function} callback onClick callback function
    */
@@ -146,6 +179,9 @@ export default Service.extend({
   /**
    * Base report function.
    *
+   * Default Type: 'success'
+   *
+   * @method report
    * @param {'success'|'failure'|'warning'|'info'} type Type of function to call
    * @param {string} title Title to show
    * @param {string} message Message to show
@@ -174,6 +210,7 @@ export default Service.extend({
   /**
    * Success report function
    *
+   * @method reportSuccess
    * @param {string} title Title to show
    * @param {string} message Message to show
    * @param {string} btnText Button text on screen
@@ -185,6 +222,7 @@ export default Service.extend({
   /**
    * Failure report function
    *
+   * @method reportFailure
    * @param {string} title Title to show
    * @param {string} message Message to show
    * @param {string} btnText Button text on screen
@@ -196,6 +234,7 @@ export default Service.extend({
   /**
    * Warning report function
    *
+   * @method reportWarning
    * @param {string} title Title to show
    * @param {string} message Message to show
    * @param {string} btnText Button text on screen
@@ -207,6 +246,7 @@ export default Service.extend({
   /**
    * Info report function
    *
+   * @method reportInfo
    * @param {string} title Title to show
    * @param {string} message Message to show
    * @param {string} btnText Button text on screen
@@ -218,6 +258,9 @@ export default Service.extend({
   /**
    * Base loading function.
    *
+   * Default Type: 'standard'
+   *
+   * @method loading
    * @param {'standard'|'hourglass'|'circle'|'arrows'|'dots'|'pulse'|'custom'} type Type of function to call
    * @param {string} message Message to show
    */
@@ -252,6 +295,7 @@ export default Service.extend({
   /**
    * Standard loading function
    *
+   * @method loadingStandard
    * @param {string} message Message to show
    */
   loadingStandard(message) {
@@ -260,6 +304,7 @@ export default Service.extend({
   /**
    * Hourglass loading function
    *
+   * @method loadingHourglass
    * @param {string} message Message to show
    */
   loadingHourglass(message) {
@@ -268,6 +313,7 @@ export default Service.extend({
   /**
    * Circle loading function
    *
+   * @method loadingCircle
    * @param {string} message Message to show
    */
   loadingCircle(message) {
@@ -276,6 +322,7 @@ export default Service.extend({
   /**
    * Arrows loading function
    *
+   * @method loadingArrows
    * @param {string} message Message to show
    */
   loadingArrows(message) {
@@ -284,6 +331,7 @@ export default Service.extend({
   /**
    * Dots loading function
    *
+   * @method loadingDots
    * @param {string} message Message to show
    */
   loadingDots(message) {
@@ -292,6 +340,7 @@ export default Service.extend({
   /**
    * Pulse loading function
    *
+   * @method loadingPulse
    * @param {string} message Message to show
    */
   loadingPulse(message) {
@@ -300,6 +349,7 @@ export default Service.extend({
   /**
    * Custom loading function
    *
+   * @method loadingCustom
    * @param {string} message Message to show
    */
   loadingCustom(message) {
@@ -309,6 +359,7 @@ export default Service.extend({
    * Change loading function,
    * changes the message on screen with new message
    *
+   * @method loadingChange
    * @param {string} message Message to show
    */
   loadingChange(message) {
@@ -318,6 +369,7 @@ export default Service.extend({
    * Remove loading function,
    * removes the loading screen immediately or after the timeout milliseconds later.
    *
+   * @method loadingRemove
    * @param {number} timeout
    */
   loadingRemove(timeout) {
@@ -326,6 +378,7 @@ export default Service.extend({
   /**
    * Base confirm function
    *
+   * @method confirm
    * @param {string} title Title to show
    * @param {string} message Message to show
    * @param {string} okBtnText OK button text on screen

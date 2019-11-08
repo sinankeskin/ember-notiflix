@@ -23,7 +23,7 @@ export default Component.extend({
    * Injected Notiflix service
    *
    * @property notiflix
-   * @type ember/service
+   * @type Notiflix
    */
   notiflix: service(),
   /**
