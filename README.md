@@ -145,8 +145,8 @@ this.notiflix.notifyInfo(message, callback);
     Since Ember 3.4 we can create a component without a dash in name,
     all "-base" named components will be deprecated next major release.
 --}}
-<Report @type="success" title="Success" @message="Message" @btnText="OK" @onClick={{action "showAlert" "Message"}} />
-<ReportBase @type="success" title="Success" @message="Message" @btnText="OK" @onClick={{action "showAlert" "Message"}} />
+<Report @type="success" @title="Success" @message="Message" @btnText="OK" @onClick={{action "showAlert" "Message"}} />
+<ReportBase @type="success" @title="Success" @message="Message" @btnText="OK" @onClick={{action "showAlert" "Message"}} />
 ```
 ``` javascript
 this.notiflix.report(type, title, message, btnText, callback);
@@ -154,7 +154,7 @@ this.notiflix.report(type, title, message, btnText, callback);
 
 ##### Success
 ``` handlebars
-<ReportSuccess title="Success" @message="Message" @btnText="OK" @onClick={{action "showAlert" "Message"}} />
+<ReportSuccess @title="Success" @message="Message" @btnText="OK" @onClick={{action "showAlert" "Message"}} />
 ```
 ``` javascript
 this.notiflix.reportSuccess(title, message, btnText, callback);
@@ -162,21 +162,21 @@ this.notiflix.reportSuccess(title, message, btnText, callback);
 
 ##### Failure
 ``` handlebars
-<ReportFailure title="Failure" @message="Message" @btnText="OK" @onClick={{action "showAlert" "Message"}} />
+<ReportFailure @title="Failure" @message="Message" @btnText="OK" @onClick={{action "showAlert" "Message"}} />
 ```
 ``` javascript
 this.notiflix.reportFailure(title, message, btnText, callback);
 ```
 ##### Warning
 ``` handlebars
-<ReportWarning title="Warning" @message="Message" @btnText="OK" @onClick={{action "showAlert" "Message"}} />
+<ReportWarning @title="Warning" @message="Message" @btnText="OK" @onClick={{action "showAlert" "Message"}} />
 ```
 ``` javascript
 this.notiflix.reportWarning(title, message, btnText, callback);
 ```
 ##### Info
 ``` handlebars
-<ReportInfo title="Info" @message="Message" @btnText="OK" @onClick={{action "showAlert" "Message"}} />
+<ReportInfo @title="Info" @message="Message" @btnText="OK" @onClick={{action "showAlert" "Message"}} />
 ```
 ``` javascript
 this.notiflix.reportInfo(title, message, btnText, callback);
@@ -267,8 +267,8 @@ this.notiflix.loadingRemove(600); // milliseconds
     Since Ember 3.4 we can create a component without a dash in name,
     all "-base" named components will be deprecated next major release.
 --}}
-<Confirm title="Notiflix Confirm" @message="Do you agree with me?" @okBtnText="Yes" @cancelBtnText="No" @onClick={{action "showAlert" "Message"}} />
-<ConfirmBase title="Notiflix Confirm" @message="Do you agree with me?" @okBtnText="Yes" @cancelBtnText="No" @onClick={{action "showAlert" "Message"}} />
+<Confirm @title="Notiflix Confirm" @message="Do you agree with me?" @okBtnText="Yes" @cancelBtnText="No" @onClick={{action "showAlert" "Message"}} />
+<ConfirmBase @title="Notiflix Confirm" @message="Do you agree with me?" @okBtnText="Yes" @cancelBtnText="No" @onClick={{action "showAlert" "Message"}} />
 ```
 ``` javascript
 this.notiflix.confirm(title, message, okBtnText, cancelBtnText, okClick, cancelClick);
