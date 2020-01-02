@@ -1,5 +1,5 @@
-import Notify from './notify';
+import NotifyComponent from './notify';
 
-export default Notify.extend({
-  type: 'failure'
-});
+export default class NotifyFailureComponent extends NotifyComponent {
+  type = 'failure';
+}

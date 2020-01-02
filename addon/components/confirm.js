@@ -1,5 +1,5 @@
 /** @documenter yuidoc */
-import Component from '@ember/component';
+import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
 
 /**
@@ -18,75 +18,65 @@ import { inject as service } from '@ember/service';
  * @class Confirm
  * @public
  */
-export default Component.extend({
+export default class ConfirmComponent extends Component {
   /**
    * Injected Notiflix service
    *
    * @property notiflix
    * @type Notiflix
    */
-  notiflix: service(),
+  @service
+  notiflix;
   /**
    * Title of the confirm
    *
    * @argument title
    * @type string
    */
-  title: '',
+  title = '';
   /**
    * Message to show
    *
    * @argument message
    * @type string
    */
-  message: '',
+  message = '';
   /**
    * OK button text
    *
    * @argument okBtnText
    * @type string
    */
-  okBtnText: '',
+  okBtnText = '';
   /**
    * Cancel button text
    *
    * @argument cancelBtnText
    * @type string
    */
-  cancelBtnText: '',
+  cancelBtnText = '';
   /**
    * OK click callback
    *
    * @argument okClick
    * @type function
    */
-  okClick() {},
+  okClick() {}
   /**
    * Cancel click callback
    *
    * @argument cancelClick
    * @type function
    */
-  cancelClick() {},
+  cancelClick() {}
 
-  init() {
-    this._super(...arguments);
-  },
-
-  didInsertElement() {
-    this._super(...arguments);
+  constructor() {
+    super(...arguments);
 
     this._displayConfirm();
-  },
+  }
 
   _displayConfirm() {
-    this.notiflix.confirm(
-      this.title,
-      this.message,
-      this.okBtnText,
-      this.cancelBtnText,
-      this.okClick,
-      this.cancelClick
-    );
+    this.notiflix.confirm(this.title, this.message, this.okBtnText, this.cancelBtnText, this.okClick, this.cancelClick);
   }
-});
+}

@@ -1,5 +1,5 @@
-import Notify from './notify';
+import NotifyComponent from './notify';
 
-export default Notify.extend({
-  type: 'warning'
-});
+export default class NotifyWarningComponent extends NotifyComponent {
+  type = 'warning';
+}

@@ -1,5 +1,5 @@
-import Loading from './loading';
+import LoadingComponent from './loading';
 
-export default Loading.extend({
-  type: 'pulse'
-});
+export default class LoadingPulseComponent extends LoadingComponent {
+  type = 'pulse';
+}

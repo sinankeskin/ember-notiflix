@@ -1,4 +1,4 @@
-import Component from '@ember/component';
+import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
 
 /**
@@ -17,14 +17,15 @@ import { inject as service } from '@ember/service';
  * @class Loading
  * @public
  */
-export default Component.extend({
+export default class LoadingComponent extends Component {
   /**
    * Injected Notiflix service
    *
    * @property notiflix
    * @type ember/service
    */
-  notiflix: service(),
+  @service
+  notiflix;
   /**
    * Type of loading screen
    *
@@ -35,28 +36,24 @@ export default Component.extend({
    * @argument type
    * @type string
    */
-  type: 'standard',
+  type = 'standard';
   /**
    * Message to show
    *
    * @argument message
    * @type string
    */
-  message: '',
+  message = '';
 
-  init() {
-    this._super(...arguments);
-  },
-
-  didInsertElement() {
-    this._super(...arguments);
+  constructor() {
+    super(...arguments);
 
     this._displayLoading();
-  },
+  }
 
   _displayLoading() {
     this.notiflix.loading(this.type, this.message);
-  },
+  }
 
   /**
    * To change message on screen
@@ -66,7 +63,7 @@ export default Component.extend({
    */
   change(message) {
     this.notiflix.Loading.Change(message);
-  },
+  }
 
   /**
    * To remove screen after delay time (milliseconds)
@@ -77,4 +74,4 @@ export default Component.extend({
   remove(delay) {
     this.notiflix.Loading.Remove(delay);
   }
-});
+}

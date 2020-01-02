@@ -1,5 +1,5 @@
-import Loading from './loading';
+import LoadingComponent from './loading';
 
-export default Loading.extend({
-  type: 'standard'
-});
+export default class LoadingStandardComponent extends LoadingComponent {
+  type = 'standard';
+}

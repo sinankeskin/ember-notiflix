@@ -1,5 +1,5 @@
-import Loading from './loading';
+import LoadingComponent from './loading';
 
-export default Loading.extend({
-  type: 'hourglass'
-});
+export default class LoadingHourglassComponent extends LoadingComponent {
+  type = 'hourglass';
+}

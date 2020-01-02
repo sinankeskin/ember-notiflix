@@ -1,4 +1,4 @@
-import Component from '@ember/component';
+import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
 
 /**
@@ -17,14 +17,15 @@ import { inject as service } from '@ember/service';
  * @class Report
  * @public
  */
-export default Component.extend({
+export default class ReportComponent extends Component {
   /**
    * Injected Notiflix service
    *
    * @property notiflix
    * @type ember/service
    */
-  notiflix: service(),
+  @service
+  notiflix;
   /**
    * Type of report
    *
@@ -35,21 +36,21 @@ export default Component.extend({
    * @argument type
    * @type string
    */
-  type: 'success',
+  type = 'success';
   /**
    * Title of the report
    *
    * @argument title
    * @type string
    */
-  title: '',
+  title = '';
   /**
    * Message to show
    *
    * @argument message
    * @type string
    */
-  message: '',
+  message = '';
   /**
    * Button text to close report
    *
@@ -58,32 +59,22 @@ export default Component.extend({
    * @argument btnText
    * @type string
    */
-  btnText: 'OK',
+  btnText = 'OK';
   /**
    * onClick callback
    *
    * @argument onClick
    * @type function
    */
-  onClick() {},
+  onClick() {}
 
-  init() {
-    this._super(...arguments);
-  },
-
-  didInsertElement() {
-    this._super(...arguments);
+  constructor() {
+    super(...arguments);
 
     this._displayReport();
-  },
+  }
 
   _displayReport() {
-    this.notiflix.report(
-      this.type,
-      this.title,
-      this.message,
-      this.btnText,
-      this.onClick
-    );
+    this.notiflix.report(this.type, this.title, this.message, this.btnText, this.onClick);
   }
-});
+}

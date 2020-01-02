@@ -1,4 +1,4 @@
-import Component from '@ember/component';
+import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
 
 /**
@@ -17,14 +17,15 @@ import { inject as service } from '@ember/service';
  * @class Notify
  * @public
  */
-export default Component.extend({
+export default class NotifyComponent extends Component {
   /**
    * Injected Notiflix service
    *
    * @property notiflix
    * @type ember/service
    */
-  notiflix: service(),
+  @service
+  notiflix;
   /**
    * Type of notify
    *
@@ -35,33 +36,29 @@ export default Component.extend({
    * @argument type
    * @type string
    */
-  type: 'success',
+  type = 'success';
   /**
    * Message to show
    *
    * @argument message
    * @type string
    */
-  message: '',
+  message = '';
   /**
    * onClick callback
    *
    * @argument onClick
    * @type function
    */
-  onClick() {},
+  onClick() {}
 
-  init() {
-    this._super(...arguments);
-  },
-
-  didInsertElement() {
-    this._super(...arguments);
+  constructor() {
+    super(...arguments);
 
     this._displayNotify();
-  },
+  }
 
   _displayNotify() {
     this.notiflix.notify(this.type, this.message, this.onClick);
   }
-});
+}

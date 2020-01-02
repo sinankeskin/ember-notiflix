@@ -1,5 +1,5 @@
-import Notify from './notify';
+import NotifyComponent from './notify';
 
-export default Notify.extend({
-  type: 'success'
-});
+export default class NotifySuccessComponent extends NotifyComponent {
+  type = 'success';
+}

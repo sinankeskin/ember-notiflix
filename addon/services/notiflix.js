@@ -21,30 +21,28 @@ import { assert } from '@ember/debug';
  * @class Notiflix
  * @public
  */
-export default Service.extend({
-  notiflix: null,
+export default class NotiflixService extends Service {
+  notiflix = null;
 
-  config: computed(function() {
-    let config = getOwner(this).resolveRegistration('config:environment') || {};
+  @computed
+  get config() {
+    const config = getOwner(this).resolveRegistration('config:environment') || {};
 
     return config['ember-notiflix'] || {};
-  }),
+  }
 
-  init() {
-    this._super(...arguments);
+  constructor() {
+    super(...arguments);
 
     this.notiflix = this.notiflix || (window ? window.Notiflix : null);
 
-    assert(
-      "Seems like Notiflix library couldn't bind to the window object. Try npm install.",
-      this.notiflix != null
-    );
+    assert("Seems like Notiflix library couldn't bind to the window object. Try npm install.", this.notiflix != null);
 
     this.notiflix.Notify.Init(this.config['notify'] || {});
     this.notiflix.Report.Init(this.config['report'] || {});
     this.notiflix.Loading.Init(this.config['loading'] || {});
     this.notiflix.Confirm.Init(this.config['confirm'] || {});
-  },
+  }
 
   /**
    * Base merge function for override initial settings.
@@ -70,7 +68,7 @@ export default Service.extend({
       default:
         break;
     }
-  },
+  }
   /**
    * Notify functionality only merge function for override initial settings.
    *
@@ -79,7 +77,7 @@ export default Service.extend({
    */
   notifyMerge(options) {
     this.notiflix.Notify.Merge(options);
-  },
+  }
   /**
    * Report functionality only merge function for override initial settings.
    *
@@ -88,7 +86,7 @@ export default Service.extend({
    */
   reportMerge(options) {
     this.notiflix.Notify.Merge(options);
-  },
+  }
   /**
    * Loading functionality only merge function for override initial settings.
    *
@@ -97,7 +95,7 @@ export default Service.extend({
    */
   loadingMerge(options) {
     this.notiflix.Notify.Merge(options);
-  },
+  }
   /**
    * Confirm functionality only merge function for override initial settings.
    *
@@ -106,7 +104,7 @@ export default Service.extend({
    */
   confirmMerge(options) {
     this.notiflix.Notify.Merge(options);
-  },
+  }
   /**
    * Base notify function.
    *
@@ -135,7 +133,7 @@ export default Service.extend({
         this.notifySuccess(message, callback);
         break;
     }
-  },
+  }
   /**
    * Success notify function
    *
@@ -145,7 +143,7 @@ export default Service.extend({
    */
   notifySuccess(message, callback) {
     this.notiflix.Notify.Success(message, callback);
-  },
+  }
   /**
    * Failure notify function
    *
@@ -155,7 +153,7 @@ export default Service.extend({
    */
   notifyFailure(message, callback) {
     this.notiflix.Notify.Failure(message, callback);
-  },
+  }
   /**
    * Warning notify function
    *
@@ -165,7 +163,7 @@ export default Service.extend({
    */
   notifyWarning(message, callback) {
     this.notiflix.Notify.Warning(message, callback);
-  },
+  }
   /**
    * Info notify function
    *
@@ -175,7 +173,7 @@ export default Service.extend({
    */
   notifyInfo(message, callback) {
     this.notiflix.Notify.Info(message, callback);
-  },
+  }
   /**
    * Base report function.
    *
@@ -206,7 +204,7 @@ export default Service.extend({
         this.reportSuccess(title, message, btnText, callback);
         break;
     }
-  },
+  }
   /**
    * Success report function
    *
@@ -218,7 +216,7 @@ export default Service.extend({
    */
   reportSuccess(title, message, btnText, callback) {
     this.notiflix.Report.Success(title, message, btnText, callback);
-  },
+  }
   /**
    * Failure report function
    *
@@ -230,7 +228,7 @@ export default Service.extend({
    */
   reportFailure(title, message, btnText, callback) {
     this.notiflix.Report.Failure(title, message, btnText, callback);
-  },
+  }
   /**
    * Warning report function
    *
@@ -242,7 +240,7 @@ export default Service.extend({
    */
   reportWarning(title, message, btnText, callback) {
     this.notiflix.Report.Warning(title, message, btnText, callback);
-  },
+  }
   /**
    * Info report function
    *
@@ -254,7 +252,7 @@ export default Service.extend({
    */
   reportInfo(title, message, btnText, callback) {
     this.notiflix.Report.Info(title, message, btnText, callback);
-  },
+  }
   /**
    * Base loading function.
    *
@@ -291,7 +289,7 @@ export default Service.extend({
         this.loadingStandard(message);
         break;
     }
-  },
+  }
   /**
    * Standard loading function
    *
@@ -300,7 +298,7 @@ export default Service.extend({
    */
   loadingStandard(message) {
     this.notiflix.Loading.Standard(message);
-  },
+  }
   /**
    * Hourglass loading function
    *
@@ -309,7 +307,7 @@ export default Service.extend({
    */
   loadingHourglass(message) {
     this.notiflix.Loading.Hourglass(message);
-  },
+  }
   /**
    * Circle loading function
    *
@@ -318,7 +316,7 @@ export default Service.extend({
    */
   loadingCircle(message) {
     this.notiflix.Loading.Circle(message);
-  },
+  }
   /**
    * Arrows loading function
    *
@@ -327,7 +325,7 @@ export default Service.extend({
    */
   loadingArrows(message) {
     this.notiflix.Loading.Arrows(message);
-  },
+  }
   /**
    * Dots loading function
    *
@@ -336,7 +334,7 @@ export default Service.extend({
    */
   loadingDots(message) {
     this.notiflix.Loading.Dots(message);
-  },
+  }
   /**
    * Pulse loading function
    *
@@ -345,7 +343,7 @@ export default Service.extend({
    */
   loadingPulse(message) {
     this.notiflix.Loading.Pulse(message);
-  },
+  }
   /**
    * Custom loading function
    *
@@ -354,7 +352,7 @@ export default Service.extend({
    */
   loadingCustom(message) {
     this.notiflix.Loading.Custom(message);
-  },
+  }
   /**
    * Change loading function,
    * changes the message on screen with new message
@@ -364,7 +362,7 @@ export default Service.extend({
    */
   loadingChange(message) {
     this.notiflix.Loading.Change(message);
-  },
+  }
   /**
    * Remove loading function,
    * removes the loading screen immediately or after the timeout milliseconds later.
@@ -374,7 +372,7 @@ export default Service.extend({
    */
   loadingRemove(timeout) {
     this.notiflix.Loading.Remove(timeout);
-  },
+  }
   /**
    * Base confirm function
    *
@@ -387,13 +385,6 @@ export default Service.extend({
    * @param {function} cancelClick cancelClick callback function
    */
   confirm(title, message, okBtnText, cancelBtnText, okClick, cancelClick) {
-    this.notiflix.Confirm.Show(
-      title,
-      message,
-      okBtnText,
-      cancelBtnText,
-      okClick,
-      cancelClick
-    );
+    this.notiflix.Confirm.Show(title, message, okBtnText, cancelBtnText, okClick, cancelClick);
   }
-});
+}

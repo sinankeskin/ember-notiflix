@@ -1,5 +1,5 @@
-import Report from './report';
+import ReportComponent from './report';
 
-export default Report.extend({
-  type: 'warning'
-});
+export default class ReportWarningComponent extends ReportComponent {
+  type = 'warning';
+}

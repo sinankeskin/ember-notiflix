@@ -1,5 +1,5 @@
-import Loading from './loading';
+import LoadingComponent from './loading';
 
-export default Loading.extend({
-  type: 'circle'
-});
+export default class LoadingCircleComponent extends LoadingComponent {
+  type = 'circle';
+}
