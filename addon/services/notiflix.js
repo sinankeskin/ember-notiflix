@@ -1,7 +1,7 @@
-import Service from '@ember/service';
 import { getOwner } from '@ember/application';
 import { computed } from '@ember/object';
 import { assert } from '@ember/debug';
+import Service from '@ember/service';
 
 /**
  * Notiflix service
@@ -11,11 +11,12 @@ import { assert } from '@ember/debug';
  * Usage:
  *
  * ```javascript
- * import Component from '@ember/component';
+ * import Component from '@glimmer/component';
  * import { inject as service } from '@ember/service';
  *
- * export default Component.extend({
- *  notiflix: service()
+ * export default class MyComponent extends Component {
+ *  @service
+ *  notiflix;
  * }
  * ```
  * @class Notiflix

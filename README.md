@@ -6,11 +6,12 @@ This addon provides all Notiflix functionalities (notify, report, loading and co
 This addon expose all functionalities as an Ember Service. If you want to reach all functions (in your controllers, components or routes) you should inject the service to your code like down below.
 
 ```javascript
-import Component from '@ember/component';
+import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
 
-export default Component.extend({
-  notiflix: service()
+export default class MyComponent extends Component {
+  @service
+  notiflix;
 }
 ```
 
@@ -18,6 +19,7 @@ export default Component.extend({
 Compatibility
 ------------------------------------------------------------------------------
 
+* Nodejs 8 or above
 * Ember.js v3.8 or above
 * Ember CLI v2.13 or above
 
@@ -30,8 +32,6 @@ ember install ember-notiflix
 ```
 Configuration
 ------------------------------------------------------------------------------
-
-> First of all, don't forget to remove **ember-welcome-page** package from your project package.json.
 
 You can change all initial global configuration settings via `config/environment.js` file. Notice that seperate notify, report, loading and confirm sections.
 
@@ -97,10 +97,9 @@ Usage
 ``` handlebars
 {{!--
     Since Ember 3.4 we can create a component without a dash in name,
-    all "-base" named components will be deprecated next major release.
+    all "-base" named components deprecated now.
 --}}
 <Notify @type="success" @message="Success" @onClick={{action "showAlert" "Message"}} />
-<NotifyBase @type="success" @message="Success" @onClick={{action "showAlert" "Message"}} />
 ```
 ``` javascript
 this.notiflix.notify(type, message, callback);
@@ -143,10 +142,9 @@ this.notiflix.notifyInfo(message, callback);
 ``` handlebars
 {{!--
     Since Ember 3.4 we can create a component without a dash in name,
-    all "-base" named components will be deprecated next major release.
+    all "-base" named components deprecated now.
 --}}
 <Report @type="success" @title="Success" @message="Message" @btnText="OK" @onClick={{action "showAlert" "Message"}} />
-<ReportBase @type="success" @title="Success" @message="Message" @btnText="OK" @onClick={{action "showAlert" "Message"}} />
 ```
 ``` javascript
 this.notiflix.report(type, title, message, btnText, callback);
@@ -187,10 +185,9 @@ this.notiflix.reportInfo(title, message, btnText, callback);
 ``` handlebars
 {{!--
     Since Ember 3.4 we can create a component without a dash in name,
-    all "-base" named components will be deprecated next major release.
+    all "-base" named components deprecated now.
 --}}
 <Loading @type="standard" @message="Loading..." />
-<LoadingBase @type="standard" @message="Loading..." />
 ```
 ``` javascript
 this.notiflix.loading(type, message);
@@ -265,10 +262,9 @@ this.notiflix.loadingRemove(600); // milliseconds
 ``` handlebars
 {{!--
     Since Ember 3.4 we can create a component without a dash in name,
-    all "-base" named components will be deprecated next major release.
+    all "-base" named components deprecated now.
 --}}
 <Confirm @title="Notiflix Confirm" @message="Do you agree with me?" @okBtnText="Yes" @cancelBtnText="No" @onClick={{action "showAlert" "Message"}} />
-<ConfirmBase @title="Notiflix Confirm" @message="Do you agree with me?" @okBtnText="Yes" @cancelBtnText="No" @onClick={{action "showAlert" "Message"}} />
 ```
 ``` javascript
 this.notiflix.confirm(title, message, okBtnText, cancelBtnText, okClick, cancelClick);
