@@ -97,7 +97,7 @@ Usage
 ``` handlebars
 {{!--
     Since Ember 3.4 we can create a component without a dash in name,
-    all "-base" named components deprecated now.
+    all "-base" named components are deprecated now.
 --}}
 <Notify @type="success" @message="Success" @onClick={{action "showAlert" "Message"}} />
 ```
@@ -142,7 +142,7 @@ this.notiflix.notifyInfo(message, callback);
 ``` handlebars
 {{!--
     Since Ember 3.4 we can create a component without a dash in name,
-    all "-base" named components deprecated now.
+    all "-base" named components are deprecated now.
 --}}
 <Report @type="success" @title="Success" @message="Message" @btnText="OK" @onClick={{action "showAlert" "Message"}} />
 ```
@@ -185,7 +185,7 @@ this.notiflix.reportInfo(title, message, btnText, callback);
 ``` handlebars
 {{!--
     Since Ember 3.4 we can create a component without a dash in name,
-    all "-base" named components deprecated now.
+    all "-base" named components are deprecated now.
 --}}
 <Loading @type="standard" @message="Loading..." />
 ```
@@ -262,7 +262,7 @@ this.notiflix.loadingRemove(600); // milliseconds
 ``` handlebars
 {{!--
     Since Ember 3.4 we can create a component without a dash in name,
-    all "-base" named components deprecated now.
+    all "-base" named components are deprecated now.
 --}}
 <Confirm @title="Notiflix Confirm" @message="Do you agree with me?" @okBtnText="Yes" @cancelBtnText="No" @onClick={{action "showAlert" "Message"}} />
 ```
