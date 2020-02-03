@@ -86,7 +86,7 @@ export default class NotiflixService extends Service {
    * @param {object} options Options to override
    */
   reportMerge(options) {
-    this.notiflix.Notify.Merge(options);
+    this.notiflix.Report.Merge(options);
   }
   /**
    * Loading functionality only merge function for override initial settings.
@@ -95,7 +95,7 @@ export default class NotiflixService extends Service {
    * @param {object} options Options to override
    */
   loadingMerge(options) {
-    this.notiflix.Notify.Merge(options);
+    this.notiflix.Loading.Merge(options);
   }
   /**
    * Confirm functionality only merge function for override initial settings.
@@ -104,7 +104,7 @@ export default class NotiflixService extends Service {
    * @param {object} options Options to override
    */
   confirmMerge(options) {
-    this.notiflix.Notify.Merge(options);
+    this.notiflix.Confirm.Merge(options);
   }
   /**
    * Base notify function.
