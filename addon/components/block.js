@@ -2,22 +2,22 @@ import { inject as service } from '@ember/service';
 import Component from '@glimmer/component';
 
 /**
- * Loading component
+ * Block component
  *
  * Usage:
  *
  * #### Handlebars
  * ```hbs
- * <Loading @type="standard" @message="Loading..." />
+ * <Block @type="standard" @elements="li.items" @message="Loading..." />
  * ```
  * #### JavaScript
  * ```js
- * this.notiflix.loading(type, message);
+ * this.notiflix.block(type, elements, message);
  * ```
- * @class Loading
+ * @class Block
  * @public
  */
-export default class LoadingComponent extends Component {
+export default class BlockComponent extends Component {
   /**
    * Injected Notiflix service
    *
@@ -27,7 +27,7 @@ export default class LoadingComponent extends Component {
   @service
   notiflix;
   /**
-   * Type of loading screen
+   * Type of block screen
    *
    * Values: standard | hourglass | circle | arrows | dots | pulse
    *
@@ -37,6 +37,13 @@ export default class LoadingComponent extends Component {
    * @type string
    */
   type = 'standard';
+  /**
+   * Elements to block. (ID or Class)
+   *
+   * @argument elements
+   * @type string
+   */
+  elements = '';
   /**
    * Message to show
    *
@@ -48,30 +55,21 @@ export default class LoadingComponent extends Component {
   constructor() {
     super(...arguments);
 
-    this._displayLoading();
+    this._displayBlock();
   }
 
-  _displayLoading() {
-    this.notiflix.loading(this.type, this.message);
-  }
-
-  /**
-   * To change message on screen
-   *
-   * @method change
-   * @param {string} message
-   */
-  change(message) {
-    this.notiflix.Loading.Change(message);
+  _displayBlock() {
+    this.notiflix.block(this.type, this.elements, this.message);
   }
 
   /**
-   * To remove screen immediately or after delay time (milliseconds)
+   * To remove block immediately or after delay time (milliseconds)
    *
    * @method remove
+   * @param {string} element
    * @param {number} delay, optional
    */
-  remove(delay) {
-    this.notiflix.Loading.Remove(delay);
+  remove(elements, delay) {
+    this.notiflix.Block.Remove(elements, delay);
   }
 }

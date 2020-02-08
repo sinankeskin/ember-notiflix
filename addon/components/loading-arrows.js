@@ -1,5 +1,5 @@
 import LoadingComponent from './loading';
 
-export default class LoadingArrowComponent extends LoadingComponent {
+export default class LoadingArrowsComponent extends LoadingComponent {
   type = 'arrows';
 }

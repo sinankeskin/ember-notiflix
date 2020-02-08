@@ -43,13 +43,14 @@ export default class NotiflixService extends Service {
     this.notiflix.Report.Init(this.config['report'] || {});
     this.notiflix.Loading.Init(this.config['loading'] || {});
     this.notiflix.Confirm.Init(this.config['confirm'] || {});
+    this.notiflix.Block.Init(this.config['block'] || {});
   }
 
   /**
    * Base merge function for override initial settings.
    *
    * @method merge
-   * @param {'notify'|'report'|'loading'|'confirm'} type Type of function to call
+   * @param {'notify'|'report'|'loading'|'confirm'|'block'} type Type of function to call
    * @param {object} options Options to override
    */
   merge(type, options) {
@@ -65,6 +66,9 @@ export default class NotiflixService extends Service {
         break;
       case 'confirm':
         this.confirmMerge(options);
+        break;
+      case 'block':
+        this.blockMerge(options);
         break;
       default:
         break;
@@ -105,6 +109,15 @@ export default class NotiflixService extends Service {
    */
   confirmMerge(options) {
     this.notiflix.Confirm.Merge(options);
+  }
+  /**
+   * Block functionality only merge function for override initial settings.
+   *
+   * @method blockMerge
+   * @param {object} options Options to override
+   */
+  blockMerge(options) {
+    this.notiflix.Block.Merge(options);
   }
   /**
    * Base notify function.
@@ -387,5 +400,110 @@ export default class NotiflixService extends Service {
    */
   confirm(title, message, okBtnText, cancelBtnText, okClick, cancelClick) {
     this.notiflix.Confirm.Show(title, message, okBtnText, cancelBtnText, okClick, cancelClick);
+  }
+  /**
+   * Base block function.
+   *
+   * Default Type: 'standard'
+   *
+   * @method block
+   * @param {'standard'|'hourglass'|'circle'|'arrows'|'dots'|'pulse'} type Type of function to call
+   * @param {string} elements Elements to block, (ID or Class)
+   * @param {string} message Message to show
+   */
+  block(type, elements, message) {
+    switch (type) {
+      case 'standard':
+        this.blockStandard(elements, message);
+        break;
+      case 'hourglass':
+        this.blockHourglass(elements, message);
+        break;
+      case 'circle':
+        this.blockCircle(elements, message);
+        break;
+      case 'arrows':
+        this.blockArrows(elements, message);
+        break;
+      case 'dots':
+        this.blockDots(elements, message);
+        break;
+      case 'pulse':
+        this.blockPulse(elements, message);
+        break;
+      default:
+        this.blockStandard(elements, message);
+        break;
+    }
+  }
+  /**
+   * Standard block function
+   *
+   * @method blockStandard
+   * @param {string} elements Elements to block, (ID or Class)
+   * @param {string} message Message to show
+   */
+  blockStandard(elements, message) {
+    this.notiflix.Block.Standard(elements, message);
+  }
+  /**
+   * Hourglass block function
+   *
+   * @method blockHourglass
+   * @param {string} message Message to show
+   */
+  blockHourglass(elements, message) {
+    this.notiflix.Block.Hourglass(elements, message);
+  }
+  /**
+   * Circle block function
+   *
+   * @method blockCircle
+   * @param {string} elements Elements to block, (ID or Class)
+   * @param {string} message Message to show
+   */
+  blockCircle(elements, message) {
+    this.notiflix.Block.Circle(elements, message);
+  }
+  /**
+   * Arrows block function
+   *
+   * @method blockArrows
+   * @param {string} elements Elements to block, (ID or Class)
+   * @param {string} message Message to show
+   */
+  blockArrows(elements, message) {
+    this.notiflix.Block.Arrows(elements, message);
+  }
+  /**
+   * Dots block function
+   *
+   * @method blockDots
+   * @param {string} elements Elements to block, (ID or Class)
+   * @param {string} message Message to show
+   */
+  blockDots(elements, message) {
+    this.notiflix.Block.Dots(elements, message);
+  }
+  /**
+   * Pulse block function
+   *
+   * @method blockPulse
+   * @param {string} elements Elements to block, (ID or Class)
+   * @param {string} message Message to show
+   */
+  blockPulse(elements, message) {
+    this.notiflix.Block.Pulse(elements, message);
+  }
+  /**
+   * Remove block function,
+   * Removes the block screen immediately or after the timeout milliseconds later.
+   *
+   * @method blockRemove
+   * @param {string} elements Elements to block, (ID or Class)
+   * @param {number} timeout
+   */
+  blockRemove(elements, timeout) {
+    this.notiflix.Block.Remove(elements, timeout);
   }
 }

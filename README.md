@@ -45,7 +45,8 @@ ENV['ember-notiflix'] = {
       customSvgUrl: 'https://cdn.shopify.com/s/files/1/0496/1029/files/Freesample.svg?5153',
       svgSize: '80px'
     },
-    confirm: {}
+    confirm: {},
+    block: {}
   };
 ```
 
@@ -270,6 +271,71 @@ this.notiflix.loadingRemove(600); // milliseconds
 this.notiflix.confirm(title, message, okBtnText, cancelBtnText, okClick, cancelClick);
 ```
 
+### Block
+##### Base - ( You can change the type with one of these values: standard[default], hourglass, circle, arrows, dots, pulse )
+``` handlebars
+{{!--
+    Since Ember 3.4 we can create a component without a dash in name,
+    all "-base" named components are deprecated now.
+--}}
+<Block @type="standard" @elements="li.items" @message="Blocking..." />
+```
+``` javascript
+this.notiflix.block(type, elements, message);
+```
+##### Standard
+``` handlebars
+<BlockStandard @elements="li.items" @message="Blocking..." />
+```
+``` javascript
+this.notiflix.blockStandard(elements, message);
+```
+##### Hourglass
+``` handlebars
+<BlockHourglass @elements="li.items" @message="Blocking..." />
+```
+``` javascript
+this.notiflix.blockHourglass(elements, message);
+```
+##### Circle
+``` handlebars
+<BlockCircle @elements="li.items" @message="Blocking..." />
+```
+``` javascript
+this.notiflix.blockCircle(elements, message);
+```
+##### Arrows
+``` handlebars
+<BlockArrows @elements="li.items" @message="Blocking..." />
+```
+``` javascript
+this.notiflix.blockArrows(elements, message);
+```
+##### Dots
+``` handlebars
+<BlockDots @elements="li.items" @message="Blocking..." />
+```
+``` javascript
+this.notiflix.blockDots(elements, message);
+```
+##### Pulse
+``` handlebars
+<BlockPulse @elements="li.items" @message="Blocking..." />
+```
+``` javascript
+this.notiflix.blockPulse(elements, message);
+```
+
+You can remove the block screen immediately,
+``` javascript
+this.notiflix.blockRemove(elements);
+```
+
+or you can remove the block screen after some delay.
+``` javascript
+this.notiflix.blockRemove(elements, 600); // milliseconds
+```
+
 Contributing
 ------------------------------------------------------------------------------
 
@@ -284,6 +350,7 @@ TODO
 - [X] Initial settings
 - [X] Merge functions
 - [X] Confirm cancel callback (onClick changed to okClick)
+- [X] Added brand new block components
 
 License
 ------------------------------------------------------------------------------
