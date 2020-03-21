@@ -8,7 +8,7 @@ import { inject as service } from '@ember/service';
  *
  * #### Handlebars
  * ```hbs
- * <Notify @type="success" @message="Success" @onClick={{action "showAlert" "Message"}} />
+ * <Notify @type="success" @message="Success" @onClick={{fn this.showAlert "Message"}} />
  * ```
  * #### JavaScript
  * ```js

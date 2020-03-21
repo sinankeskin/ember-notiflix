@@ -9,7 +9,7 @@ import { inject as service } from '@ember/service';
  *
  * #### Handlebars
  * ```hbs
- * <Confirm @title="Notiflix Confirm" @message="Do you agree with me?" @okBtnText="Yes" @cancelBtnText="No" @onClick={{action "showAlert" "Message"}} @cancelClick={{action "showAlert" "Message"}} />
+ * <Confirm @title="Notiflix Confirm" @message="Do you agree with me?" @okBtnText="Yes" @cancelBtnText="No" @onClick={{fn this.showAlert "Message"}} @cancelClick={{fn this.showAlert "Message"}} />
  * ```
  * #### JavaScript
  * ```js
