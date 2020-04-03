@@ -25,12 +25,13 @@
     "lint:hbs": "ember-template-lint .",
     "lint:js": "eslint .",
     "start": "ember serve",
+    "deploy": "npm version patch && git push origin master && git push origin --tags && npm publish",
     "test": "npm-run-all lint:* test:*",
     "test:ember": "ember test",
     "test:ember-compatibility": "ember try:each"
   },
   "dependencies": {
-    "ember-cli-babel": "^7.18.0",
+    "ember-cli-babel": "^7.19.0",
     "ember-cli-htmlbars": "^4.2.3",
     "notiflix": "2.1.2"
   },
@@ -58,13 +59,13 @@
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-qunit": "^4.6.0",
     "ember-resolver": "^7.0.0",
-    "ember-source": "^3.17.1",
+    "ember-source": "^3.17.3",
     "ember-source-channel-url": "^2.0.1",
-    "ember-template-lint": "^2.4.0",
+    "ember-template-lint": "^2.4.1",
     "ember-try": "^1.4.0",
     "eslint": "^6.8.0",
-    "eslint-plugin-ember": "^7.11.0",
-    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-ember": "^7.13.0",
+    "eslint-plugin-node": "^11.1.0",
     "loader.js": "^4.7.0",
     "npm-run-all": "^4.1.5",
     "qunit-dom": "^1.1.0"
