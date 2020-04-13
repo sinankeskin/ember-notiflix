@@ -128,23 +128,24 @@ export default class NotiflixService extends Service {
    * @param {'success'|'failure'|'warning'|'info'} type Type of function to call
    * @param {string} message Message to show
    * @param {function} callback onClick callback function
+   * @param {object} options Options to override
    */
-  notify(type, message, callback) {
+  notify(type, message, callback, options) {
     switch (type) {
       case 'success':
-        this.notifySuccess(message, callback);
+        this.notifySuccess(message, callback, options);
         break;
       case 'failure':
-        this.notifyFailure(message, callback);
+        this.notifyFailure(message, callback, options);
         break;
       case 'warning':
-        this.notifyWarning(message, callback);
+        this.notifyWarning(message, callback, options);
         break;
       case 'info':
-        this.notifyInfo(message, callback);
+        this.notifyInfo(message, callback, options);
         break;
       default:
-        this.notifySuccess(message, callback);
+        this.notifySuccess(message, callback, options);
         break;
     }
   }
@@ -154,8 +155,13 @@ export default class NotiflixService extends Service {
    * @method notifySuccess
    * @param {string} message Message to show
    * @param {function} callback onClick callback function
+   * @param {object} options Options to override
    */
-  notifySuccess(message, callback) {
+  notifySuccess(message, callback, options) {
+    if (options) {
+      this.notifyMerge(options);
+    }
+
     this.notiflix.Notify.Success(message, callback);
   }
   /**
@@ -164,8 +170,13 @@ export default class NotiflixService extends Service {
    * @method notifyFailure
    * @param {string} message Message to show
    * @param {function} callback onClick callback function
+   * @param {object} options Options to override
    */
-  notifyFailure(message, callback) {
+  notifyFailure(message, callback, options) {
+    if (options) {
+      this.notifyMerge(options);
+    }
+
     this.notiflix.Notify.Failure(message, callback);
   }
   /**
@@ -174,8 +185,13 @@ export default class NotiflixService extends Service {
    * @method notifyWarning
    * @param {string} message Message to show
    * @param {function} callback onClick callback function
+   * @param {object} options Options to override
    */
-  notifyWarning(message, callback) {
+  notifyWarning(message, callback, options) {
+    if (options) {
+      this.notifyMerge(options);
+    }
+
     this.notiflix.Notify.Warning(message, callback);
   }
   /**
@@ -184,8 +200,13 @@ export default class NotiflixService extends Service {
    * @method notifyInfo
    * @param {string} message Message to show
    * @param {function} callback onClick callback function
+   * @param {object} options Options to override
    */
-  notifyInfo(message, callback) {
+  notifyInfo(message, callback, options) {
+    if (options) {
+      this.notifyMerge(options);
+    }
+
     this.notiflix.Notify.Info(message, callback);
   }
   /**
@@ -199,23 +220,24 @@ export default class NotiflixService extends Service {
    * @param {string} message Message to show
    * @param {string} btnText Button text on screen
    * @param {function} callback onClick callback function
+   * @param {object} options Options to override
    */
-  report(type, title, message, btnText, callback) {
+  report(type, title, message, btnText, callback, options) {
     switch (type) {
       case 'success':
-        this.reportSuccess(title, message, btnText, callback);
+        this.reportSuccess(title, message, btnText, callback, options);
         break;
       case 'failure':
-        this.reportFailure(title, message, btnText, callback);
+        this.reportFailure(title, message, btnText, callback, options);
         break;
       case 'warning':
-        this.reportWarning(title, message, btnText, callback);
+        this.reportWarning(title, message, btnText, callback, options);
         break;
       case 'info':
-        this.reportInfo(title, message, btnText, callback);
+        this.reportInfo(title, message, btnText, callback, options);
         break;
       default:
-        this.reportSuccess(title, message, btnText, callback);
+        this.reportSuccess(title, message, btnText, callback, options);
         break;
     }
   }
@@ -227,8 +249,13 @@ export default class NotiflixService extends Service {
    * @param {string} message Message to show
    * @param {string} btnText Button text on screen
    * @param {function} callback onClick callback function
+   * @param {object} options Options to override
    */
-  reportSuccess(title, message, btnText, callback) {
+  reportSuccess(title, message, btnText, callback, options) {
+    if (options) {
+      this.reportMerge(options);
+    }
+
     this.notiflix.Report.Success(title, message, btnText, callback);
   }
   /**
@@ -239,8 +266,13 @@ export default class NotiflixService extends Service {
    * @param {string} message Message to show
    * @param {string} btnText Button text on screen
    * @param {function} callback onClick callback function
+   * @param {object} options Options to override
    */
-  reportFailure(title, message, btnText, callback) {
+  reportFailure(title, message, btnText, callback, options) {
+    if (options) {
+      this.reportMerge(options);
+    }
+
     this.notiflix.Report.Failure(title, message, btnText, callback);
   }
   /**
@@ -251,8 +283,13 @@ export default class NotiflixService extends Service {
    * @param {string} message Message to show
    * @param {string} btnText Button text on screen
    * @param {function} callback onClick callback function
+   * @param {object} options Options to override
    */
-  reportWarning(title, message, btnText, callback) {
+  reportWarning(title, message, btnText, callback, options) {
+    if (options) {
+      this.reportMerge(options);
+    }
+
     this.notiflix.Report.Warning(title, message, btnText, callback);
   }
   /**
@@ -263,8 +300,13 @@ export default class NotiflixService extends Service {
    * @param {string} message Message to show
    * @param {string} btnText Button text on screen
    * @param {function} callback onClick callback function
+   * @param {object} options Options to override
    */
-  reportInfo(title, message, btnText, callback) {
+  reportInfo(title, message, btnText, callback, options) {
+    if (options) {
+      this.reportMerge(options);
+    }
+
     this.notiflix.Report.Info(title, message, btnText, callback);
   }
   /**
@@ -275,32 +317,33 @@ export default class NotiflixService extends Service {
    * @method loading
    * @param {'standard'|'hourglass'|'circle'|'arrows'|'dots'|'pulse'|'custom'} type Type of function to call
    * @param {string} message Message to show
+   * @param {object} options Options to override
    */
-  loading(type, message) {
+  loading(type, message, options) {
     switch (type) {
       case 'standard':
-        this.loadingStandard(message);
+        this.loadingStandard(message, options);
         break;
       case 'hourglass':
-        this.loadingHourglass(message);
+        this.loadingHourglass(message, options);
         break;
       case 'circle':
-        this.loadingCircle(message);
+        this.loadingCircle(message, options);
         break;
       case 'arrows':
-        this.loadingArrows(message);
+        this.loadingArrows(message, options);
         break;
       case 'dots':
-        this.loadingDots(message);
+        this.loadingDots(message, options);
         break;
       case 'pulse':
-        this.loadingPulse(message);
+        this.loadingPulse(message, options);
         break;
       case 'custom':
-        this.loadingCustom(message);
+        this.loadingCustom(message, options);
         break;
       default:
-        this.loadingStandard(message);
+        this.loadingStandard(message, options);
         break;
     }
   }
@@ -309,8 +352,13 @@ export default class NotiflixService extends Service {
    *
    * @method loadingStandard
    * @param {string} message Message to show
+   * @param {object} options Options to override
    */
-  loadingStandard(message) {
+  loadingStandard(message, options) {
+    if (options) {
+      this.loadingMerge(options);
+    }
+
     this.notiflix.Loading.Standard(message);
   }
   /**
@@ -318,8 +366,13 @@ export default class NotiflixService extends Service {
    *
    * @method loadingHourglass
    * @param {string} message Message to show
+   * @param {object} options Options to override
    */
-  loadingHourglass(message) {
+  loadingHourglass(message, options) {
+    if (options) {
+      this.loadingMerge(options);
+    }
+
     this.notiflix.Loading.Hourglass(message);
   }
   /**
@@ -327,8 +380,13 @@ export default class NotiflixService extends Service {
    *
    * @method loadingCircle
    * @param {string} message Message to show
+   * @param {object} options Options to override
    */
-  loadingCircle(message) {
+  loadingCircle(message, options) {
+    if (options) {
+      this.loadingMerge(options);
+    }
+
     this.notiflix.Loading.Circle(message);
   }
   /**
@@ -336,8 +394,13 @@ export default class NotiflixService extends Service {
    *
    * @method loadingArrows
    * @param {string} message Message to show
+   * @param {object} options Options to override
    */
-  loadingArrows(message) {
+  loadingArrows(message, options) {
+    if (options) {
+      this.loadingMerge(options);
+    }
+
     this.notiflix.Loading.Arrows(message);
   }
   /**
@@ -345,8 +408,13 @@ export default class NotiflixService extends Service {
    *
    * @method loadingDots
    * @param {string} message Message to show
+   * @param {object} options Options to override
    */
-  loadingDots(message) {
+  loadingDots(message, options) {
+    if (options) {
+      this.loadingMerge(options);
+    }
+
     this.notiflix.Loading.Dots(message);
   }
   /**
@@ -354,8 +422,13 @@ export default class NotiflixService extends Service {
    *
    * @method loadingPulse
    * @param {string} message Message to show
+   * @param {object} options Options to override
    */
-  loadingPulse(message) {
+  loadingPulse(message, options) {
+    if (options) {
+      this.loadingMerge(options);
+    }
+
     this.notiflix.Loading.Pulse(message);
   }
   /**
@@ -363,8 +436,13 @@ export default class NotiflixService extends Service {
    *
    * @method loadingCustom
    * @param {string} message Message to show
+   * @param {object} options Options to override
    */
-  loadingCustom(message) {
+  loadingCustom(message, options) {
+    if (options) {
+      this.loadingMerge(options);
+    }
+
     this.notiflix.Loading.Custom(message);
   }
   /**
@@ -397,8 +475,13 @@ export default class NotiflixService extends Service {
    * @param {string} cancelBtnText Cancel button text on screen
    * @param {function} okClick okClick callback function
    * @param {function} cancelClick cancelClick callback function
+   * @param {object} options Options to override
    */
-  confirm(title, message, okBtnText, cancelBtnText, okClick, cancelClick) {
+  confirm(title, message, okBtnText, cancelBtnText, okClick, cancelClick, options) {
+    if (options) {
+      this.confirmMerge(options);
+    }
+
     this.notiflix.Confirm.Show(title, message, okBtnText, cancelBtnText, okClick, cancelClick);
   }
   /**
@@ -410,29 +493,30 @@ export default class NotiflixService extends Service {
    * @param {'standard'|'hourglass'|'circle'|'arrows'|'dots'|'pulse'} type Type of function to call
    * @param {string} elements Elements to block, (ID or Class)
    * @param {string} message Message to show
+   * @param {object} options Options to override
    */
-  block(type, elements, message) {
+  block(type, elements, message, options) {
     switch (type) {
       case 'standard':
-        this.blockStandard(elements, message);
+        this.blockStandard(elements, message, options);
         break;
       case 'hourglass':
-        this.blockHourglass(elements, message);
+        this.blockHourglass(elements, message, options);
         break;
       case 'circle':
-        this.blockCircle(elements, message);
+        this.blockCircle(elements, message, options);
         break;
       case 'arrows':
-        this.blockArrows(elements, message);
+        this.blockArrows(elements, message, options);
         break;
       case 'dots':
-        this.blockDots(elements, message);
+        this.blockDots(elements, message, options);
         break;
       case 'pulse':
-        this.blockPulse(elements, message);
+        this.blockPulse(elements, message, options);
         break;
       default:
-        this.blockStandard(elements, message);
+        this.blockStandard(elements, message, options);
         break;
     }
   }
@@ -442,8 +526,13 @@ export default class NotiflixService extends Service {
    * @method blockStandard
    * @param {string} elements Elements to block, (ID or Class)
    * @param {string} message Message to show
+   * @param {object} options Options to override
    */
-  blockStandard(elements, message) {
+  blockStandard(elements, message, options) {
+    if (options) {
+      this.blockMerge(options);
+    }
+
     this.notiflix.Block.Standard(elements, message);
   }
   /**
@@ -451,8 +540,13 @@ export default class NotiflixService extends Service {
    *
    * @method blockHourglass
    * @param {string} message Message to show
+   * @param {object} options Options to override
    */
-  blockHourglass(elements, message) {
+  blockHourglass(elements, message, options) {
+    if (options) {
+      this.blockMerge(options);
+    }
+
     this.notiflix.Block.Hourglass(elements, message);
   }
   /**
@@ -461,8 +555,13 @@ export default class NotiflixService extends Service {
    * @method blockCircle
    * @param {string} elements Elements to block, (ID or Class)
    * @param {string} message Message to show
+   * @param {object} options Options to override
    */
-  blockCircle(elements, message) {
+  blockCircle(elements, message, options) {
+    if (options) {
+      this.blockMerge(options);
+    }
+
     this.notiflix.Block.Circle(elements, message);
   }
   /**
@@ -471,8 +570,13 @@ export default class NotiflixService extends Service {
    * @method blockArrows
    * @param {string} elements Elements to block, (ID or Class)
    * @param {string} message Message to show
+   * @param {object} options Options to override
    */
-  blockArrows(elements, message) {
+  blockArrows(elements, message, options) {
+    if (options) {
+      this.blockMerge(options);
+    }
+
     this.notiflix.Block.Arrows(elements, message);
   }
   /**
@@ -481,8 +585,13 @@ export default class NotiflixService extends Service {
    * @method blockDots
    * @param {string} elements Elements to block, (ID or Class)
    * @param {string} message Message to show
+   * @param {object} options Options to override
    */
-  blockDots(elements, message) {
+  blockDots(elements, message, options) {
+    if (options) {
+      this.blockMerge(options);
+    }
+
     this.notiflix.Block.Dots(elements, message);
   }
   /**
@@ -491,8 +600,13 @@ export default class NotiflixService extends Service {
    * @method blockPulse
    * @param {string} elements Elements to block, (ID or Class)
    * @param {string} message Message to show
+   * @param {object} options Options to override
    */
-  blockPulse(elements, message) {
+  blockPulse(elements, message, options) {
+    if (options) {
+      this.blockMerge(options);
+    }
+
     this.notiflix.Block.Pulse(elements, message);
   }
   /**

@@ -1,5 +1,7 @@
-import Component from '@glimmer/component';
+/** @documenter yuidoc */
 import { inject as service } from '@ember/service';
+import { computed } from '@ember/object';
+import Component from '@glimmer/component';
 
 /**
  * Report component
@@ -36,21 +38,30 @@ export default class ReportComponent extends Component {
    * @argument type
    * @type string
    */
-  type = 'success';
+  @computed('args.type')
+  get type() {
+    return this.args.type || this._type;
+  }
   /**
    * Title of the report
    *
    * @argument title
    * @type string
    */
-  title = '';
+  @computed('args.title')
+  get title() {
+    return this.args.title || '';
+  }
   /**
    * Message to show
    *
    * @argument message
    * @type string
    */
-  message = '';
+  @computed('args.message')
+  get message() {
+    return this.args.message || '';
+  }
   /**
    * Button text to close report
    *
@@ -59,22 +70,44 @@ export default class ReportComponent extends Component {
    * @argument btnText
    * @type string
    */
-  btnText = 'OK';
+  @computed('args.btnText')
+  get btnText() {
+    return this.args.btnText || 'OK';
+  }
   /**
    * onClick callback
    *
    * @argument onClick
    * @type function
    */
-  onClick() {}
+  @computed('args.onClick')
+  get onClick() {
+    return this.args.onClick;
+  }
+  /**
+   * Options to merge
+   *
+   * @argument options
+   * @type object
+   */
+  @computed('args.options')
+  get options() {
+    return this.args.options;
+  }
 
   constructor() {
     super(...arguments);
+
+    this._type = arguments[2] || 'success';
 
     this._displayReport();
   }
 
   _displayReport() {
+    if (this.options) {
+      this.notiflix.reportMerge(this.options);
+    }
+
     this.notiflix.report(this.type, this.title, this.message, this.btnText, this.onClick);
   }
 }

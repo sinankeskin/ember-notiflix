@@ -1,6 +1,7 @@
 /** @documenter yuidoc */
-import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
+import { computed } from '@ember/object';
+import Component from '@glimmer/component';
 
 /**
  * Confirm component
@@ -33,42 +34,70 @@ export default class ConfirmComponent extends Component {
    * @argument title
    * @type string
    */
-  title = '';
+  @computed('args.title')
+  get title() {
+    return this.args.title || '';
+  }
   /**
    * Message to show
    *
    * @argument message
    * @type string
    */
-  message = '';
+  @computed('args.message')
+  get message() {
+    return this.args.message || '';
+  }
   /**
    * OK button text
    *
    * @argument okBtnText
    * @type string
    */
-  okBtnText = '';
+  @computed('args.okBtnText')
+  get okBtnText() {
+    return this.args.okBtnText || '';
+  }
   /**
    * Cancel button text
    *
    * @argument cancelBtnText
    * @type string
    */
-  cancelBtnText = '';
+  @computed('args.cancelBtnText')
+  get cancelBtnText() {
+    return this.args.cancelBtnText || '';
+  }
   /**
    * OK click callback
    *
    * @argument okClick
    * @type function
    */
-  okClick() {}
+  @computed('args.okClick')
+  get okClick() {
+    return this.args.okClick;
+  }
   /**
    * Cancel click callback
    *
    * @argument cancelClick
    * @type function
    */
-  cancelClick() {}
+  @computed('args.cancelClick')
+  get cancelClick() {
+    return this.args.cancelClick;
+  }
+  /**
+   * Options to merge
+   *
+   * @argument options
+   * @type object
+   */
+  @computed('args.options')
+  get options() {
+    return this.args.options;
+  }
 
   constructor() {
     super(...arguments);
@@ -77,6 +106,10 @@ export default class ConfirmComponent extends Component {
   }
 
   _displayConfirm() {
+    if (this.options) {
+      this.notiflix.confirmMerge(this.options);
+    }
+
     this.notiflix.confirm(this.title, this.message, this.okBtnText, this.cancelBtnText, this.okClick, this.cancelClick);
   }
 }

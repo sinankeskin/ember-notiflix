@@ -1,5 +1,7 @@
 import BlockComponent from './block';
 
 export default class BlockDotsComponent extends BlockComponent {
-  type = 'dots';
+  constructor() {
+    super(...arguments, 'dots');
+  }
 }

@@ -1,4 +1,6 @@
+/** @documenter yuidoc */
 import { inject as service } from '@ember/service';
+import { computed } from '@ember/object';
 import Component from '@glimmer/component';
 
 /**
@@ -36,29 +38,54 @@ export default class BlockComponent extends Component {
    * @argument type
    * @type string
    */
-  type = 'standard';
+  @computed('args.type')
+  get type() {
+    return this.args.type || this._type;
+  }
   /**
    * Elements to block. (ID or Class)
    *
    * @argument elements
    * @type string
    */
-  elements = '';
+  @computed('args.elements')
+  get elements() {
+    return this.args.elements || '';
+  }
   /**
    * Message to show
    *
    * @argument message
    * @type string
    */
-  message = '';
+  @computed('args.message')
+  get message() {
+    return this.args.message || '';
+  }
+  /**
+   * Options to merge
+   *
+   * @argument options
+   * @type object
+   */
+  @computed('args.options')
+  get options() {
+    return this.args.options;
+  }
 
   constructor() {
     super(...arguments);
+
+    this._type = arguments[2] || 'standard';
 
     this._displayBlock();
   }
 
   _displayBlock() {
+    if (this.options) {
+      this.notiflix.blockMerge(this.options);
+    }
+
     this.notiflix.block(this.type, this.elements, this.message);
   }
 

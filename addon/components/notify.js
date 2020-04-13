@@ -1,5 +1,7 @@
-import Component from '@glimmer/component';
+/** @documenter yuidoc */
 import { inject as service } from '@ember/service';
+import { computed } from '@ember/object';
+import Component from '@glimmer/component';
 
 /**
  * Notify component
@@ -36,29 +38,54 @@ export default class NotifyComponent extends Component {
    * @argument type
    * @type string
    */
-  type = 'success';
+  @computed('args.type')
+  get type() {
+    return this.args.type || this._type;
+  }
   /**
    * Message to show
    *
    * @argument message
    * @type string
    */
-  message = '';
+  @computed('args.message')
+  get message() {
+    return this.args.message || '';
+  }
   /**
    * onClick callback
    *
    * @argument onClick
    * @type function
    */
-  onClick() {}
+  @computed('args.onClick')
+  get onClick() {
+    return this.args.onClick;
+  }
+  /**
+   * Options to merge
+   *
+   * @argument options
+   * @type object
+   */
+  @computed('args.options')
+  get options() {
+    return this.args.options;
+  }
 
   constructor() {
     super(...arguments);
+
+    this._type = arguments[2] || 'success';
 
     this._displayNotify();
   }
 
   _displayNotify() {
+    if (this.options) {
+      this.notiflix.notifyMerge(this.options);
+    }
+
     this.notiflix.notify(this.type, this.message, this.onClick);
   }
 }
