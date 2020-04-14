@@ -107,7 +107,7 @@ export default class ConfirmComponent extends Component {
 
   _displayConfirm() {
     if (this.options) {
-      this.notiflix.confirmMerge(this.options);
+      this.notiflix._confirmMerge(this.options);
     }
 
     this.notiflix.confirm(this.title, this.message, this.okBtnText, this.cancelBtnText, this.okClick, this.cancelClick);

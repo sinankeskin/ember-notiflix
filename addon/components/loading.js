@@ -73,7 +73,7 @@ export default class LoadingComponent extends Component {
 
   _displayLoading() {
     if (this.options) {
-      this.notiflix.loadingMerge(this.options);
+      this.notiflix._loadingMerge(this.options);
     }
 
     this.notiflix.loading(this.type, this.message);

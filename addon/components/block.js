@@ -83,7 +83,7 @@ export default class BlockComponent extends Component {
 
   _displayBlock() {
     if (this.options) {
-      this.notiflix.blockMerge(this.options);
+      this.notiflix._blockMerge(this.options);
     }
 
     this.notiflix.block(this.type, this.elements, this.message);

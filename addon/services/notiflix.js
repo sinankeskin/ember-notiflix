@@ -1,6 +1,6 @@
 import { getOwner } from '@ember/application';
 import { computed } from '@ember/object';
-import { assert } from '@ember/debug';
+import { assert, deprecate } from '@ember/debug';
 import Service from '@ember/service';
 
 /**
@@ -54,21 +54,30 @@ export default class NotiflixService extends Service {
    * @param {object} options Options to override
    */
   merge(type, options) {
+    deprecate(
+      'All merge functions will be private in next minor version (2.3.0). Please use @options instead.',
+      false,
+      {
+        id: 'ember-notiflix-private-merge',
+        until: '4.0.0',
+      }
+    );
+
     switch (type) {
       case 'notify':
-        this.notifyMerge(options);
+        this._notifyMerge(options);
         break;
       case 'report':
-        this.reportMerge(options);
+        this._reportMerge(options);
         break;
       case 'loading':
-        this.loadingMerge(options);
+        this._loadingMerge(options);
         break;
       case 'confirm':
-        this.confirmMerge(options);
+        this._confirmMerge(options);
         break;
       case 'block':
-        this.blockMerge(options);
+        this._blockMerge(options);
         break;
       default:
         break;
@@ -81,6 +90,19 @@ export default class NotiflixService extends Service {
    * @param {object} options Options to override
    */
   notifyMerge(options) {
+    deprecate(
+      'All merge functions will be private in next minor version (2.3.0). Please use @options instead.',
+      false,
+      {
+        id: 'ember-notiflix-private-merge',
+        until: '4.0.0',
+      }
+    );
+
+    this._notifyMerge(options);
+  }
+
+  _notifyMerge(options) {
     this.notiflix.Notify.Merge(options);
   }
   /**
@@ -90,6 +112,19 @@ export default class NotiflixService extends Service {
    * @param {object} options Options to override
    */
   reportMerge(options) {
+    deprecate(
+      'All merge functions will be private in next minor version (2.3.0). Please use @options instead.',
+      false,
+      {
+        id: 'ember-notiflix-private-merge',
+        until: '4.0.0',
+      }
+    );
+
+    this._reportMerge(options);
+  }
+
+  _reportMerge(options) {
     this.notiflix.Report.Merge(options);
   }
   /**
@@ -99,6 +134,19 @@ export default class NotiflixService extends Service {
    * @param {object} options Options to override
    */
   loadingMerge(options) {
+    deprecate(
+      'All merge functions will be private in next minor version (2.3.0). Please use @options instead.',
+      false,
+      {
+        id: 'ember-notiflix-private-merge',
+        until: '4.0.0',
+      }
+    );
+
+    this._loadingMerge(options);
+  }
+
+  _loadingMerge(options) {
     this.notiflix.Loading.Merge(options);
   }
   /**
@@ -108,6 +156,19 @@ export default class NotiflixService extends Service {
    * @param {object} options Options to override
    */
   confirmMerge(options) {
+    deprecate(
+      'All merge functions will be private in next minor version (2.3.0). Please use @options instead.',
+      false,
+      {
+        id: 'ember-notiflix-private-merge',
+        until: '4.0.0',
+      }
+    );
+
+    this._confirmMerge(options);
+  }
+
+  _confirmMerge(options) {
     this.notiflix.Confirm.Merge(options);
   }
   /**
@@ -117,6 +178,19 @@ export default class NotiflixService extends Service {
    * @param {object} options Options to override
    */
   blockMerge(options) {
+    deprecate(
+      'All merge functions will be private in next minor version (2.3.0). Please use @options instead.',
+      false,
+      {
+        id: 'ember-notiflix-private-merge',
+        until: '4.0.0',
+      }
+    );
+
+    this._blockMerge(options);
+  }
+
+  _blockMerge(options) {
     this.notiflix.Block.Merge(options);
   }
   /**
@@ -159,7 +233,7 @@ export default class NotiflixService extends Service {
    */
   notifySuccess(message, callback, options) {
     if (options) {
-      this.notifyMerge(options);
+      this.notiflix.Notify.Merge(options);
     }
 
     this.notiflix.Notify.Success(message, callback);
@@ -174,7 +248,7 @@ export default class NotiflixService extends Service {
    */
   notifyFailure(message, callback, options) {
     if (options) {
-      this.notifyMerge(options);
+      this.notiflix.Notify.Merge(options);
     }
 
     this.notiflix.Notify.Failure(message, callback);
@@ -189,7 +263,7 @@ export default class NotiflixService extends Service {
    */
   notifyWarning(message, callback, options) {
     if (options) {
-      this.notifyMerge(options);
+      this.notiflix.Notify.Merge(options);
     }
 
     this.notiflix.Notify.Warning(message, callback);
@@ -204,7 +278,7 @@ export default class NotiflixService extends Service {
    */
   notifyInfo(message, callback, options) {
     if (options) {
-      this.notifyMerge(options);
+      this.notiflix.Notify.Merge(options);
     }
 
     this.notiflix.Notify.Info(message, callback);
@@ -253,7 +327,7 @@ export default class NotiflixService extends Service {
    */
   reportSuccess(title, message, btnText, callback, options) {
     if (options) {
-      this.reportMerge(options);
+      this.notiflix.Report.Merge(options);
     }
 
     this.notiflix.Report.Success(title, message, btnText, callback);
@@ -270,7 +344,7 @@ export default class NotiflixService extends Service {
    */
   reportFailure(title, message, btnText, callback, options) {
     if (options) {
-      this.reportMerge(options);
+      this.notiflix.Report.Merge(options);
     }
 
     this.notiflix.Report.Failure(title, message, btnText, callback);
@@ -287,7 +361,7 @@ export default class NotiflixService extends Service {
    */
   reportWarning(title, message, btnText, callback, options) {
     if (options) {
-      this.reportMerge(options);
+      this.notiflix.Report.Merge(options);
     }
 
     this.notiflix.Report.Warning(title, message, btnText, callback);
@@ -304,7 +378,7 @@ export default class NotiflixService extends Service {
    */
   reportInfo(title, message, btnText, callback, options) {
     if (options) {
-      this.reportMerge(options);
+      this.notiflix.Report.Merge(options);
     }
 
     this.notiflix.Report.Info(title, message, btnText, callback);
@@ -356,7 +430,7 @@ export default class NotiflixService extends Service {
    */
   loadingStandard(message, options) {
     if (options) {
-      this.loadingMerge(options);
+      this.notiflix.Loading.Merge(options);
     }
 
     this.notiflix.Loading.Standard(message);
@@ -370,7 +444,7 @@ export default class NotiflixService extends Service {
    */
   loadingHourglass(message, options) {
     if (options) {
-      this.loadingMerge(options);
+      this.notiflix.Loading.Merge(options);
     }
 
     this.notiflix.Loading.Hourglass(message);
@@ -384,7 +458,7 @@ export default class NotiflixService extends Service {
    */
   loadingCircle(message, options) {
     if (options) {
-      this.loadingMerge(options);
+      this.notiflix.Loading.Merge(options);
     }
 
     this.notiflix.Loading.Circle(message);
@@ -398,7 +472,7 @@ export default class NotiflixService extends Service {
    */
   loadingArrows(message, options) {
     if (options) {
-      this.loadingMerge(options);
+      this.notiflix.Loading.Merge(options);
     }
 
     this.notiflix.Loading.Arrows(message);
@@ -412,7 +486,7 @@ export default class NotiflixService extends Service {
    */
   loadingDots(message, options) {
     if (options) {
-      this.loadingMerge(options);
+      this.notiflix.Loading.Merge(options);
     }
 
     this.notiflix.Loading.Dots(message);
@@ -426,7 +500,7 @@ export default class NotiflixService extends Service {
    */
   loadingPulse(message, options) {
     if (options) {
-      this.loadingMerge(options);
+      this.notiflix.Loading.Merge(options);
     }
 
     this.notiflix.Loading.Pulse(message);
@@ -440,7 +514,7 @@ export default class NotiflixService extends Service {
    */
   loadingCustom(message, options) {
     if (options) {
-      this.loadingMerge(options);
+      this.notiflix.Loading.Merge(options);
     }
 
     this.notiflix.Loading.Custom(message);
@@ -479,7 +553,7 @@ export default class NotiflixService extends Service {
    */
   confirm(title, message, okBtnText, cancelBtnText, okClick, cancelClick, options) {
     if (options) {
-      this.confirmMerge(options);
+      this.notiflix.Confirm.Merge(options);
     }
 
     this.notiflix.Confirm.Show(title, message, okBtnText, cancelBtnText, okClick, cancelClick);
@@ -530,7 +604,7 @@ export default class NotiflixService extends Service {
    */
   blockStandard(elements, message, options) {
     if (options) {
-      this.blockMerge(options);
+      this.notiflix.Block.Merge(options);
     }
 
     this.notiflix.Block.Standard(elements, message);
@@ -544,7 +618,7 @@ export default class NotiflixService extends Service {
    */
   blockHourglass(elements, message, options) {
     if (options) {
-      this.blockMerge(options);
+      this.notiflix.Block.Merge(options);
     }
 
     this.notiflix.Block.Hourglass(elements, message);
@@ -559,7 +633,7 @@ export default class NotiflixService extends Service {
    */
   blockCircle(elements, message, options) {
     if (options) {
-      this.blockMerge(options);
+      this.notiflix.Block.Merge(options);
     }
 
     this.notiflix.Block.Circle(elements, message);
@@ -574,7 +648,7 @@ export default class NotiflixService extends Service {
    */
   blockArrows(elements, message, options) {
     if (options) {
-      this.blockMerge(options);
+      this.notiflix.Block.Merge(options);
     }
 
     this.notiflix.Block.Arrows(elements, message);
@@ -589,7 +663,7 @@ export default class NotiflixService extends Service {
    */
   blockDots(elements, message, options) {
     if (options) {
-      this.blockMerge(options);
+      this.notiflix.Block.Merge(options);
     }
 
     this.notiflix.Block.Dots(elements, message);
@@ -604,7 +678,7 @@ export default class NotiflixService extends Service {
    */
   blockPulse(elements, message, options) {
     if (options) {
-      this.blockMerge(options);
+      this.notiflix.Block.Merge(options);
     }
 
     this.notiflix.Block.Pulse(elements, message);

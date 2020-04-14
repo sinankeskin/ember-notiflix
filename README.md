@@ -52,6 +52,8 @@ ENV['ember-notiflix'] = {
 
 In your code, you can override the initial global settings via merge functions in any time.
 
+> **WARNING**: All merge functions will be private in next minor version (2.3.0). Please use @options instead. 
+
 ### Merge
 ##### Base - ( You can change the type with one of these values: notify, report, loading, confirm )
 ``` javascript
@@ -359,6 +361,7 @@ TODO
 - [X] Confirm cancel callback (onClick changed to okClick)
 - [X] Added brand new block components
 - [X] Added @options for components and functions
+- [X] Added merge functions deprecations message
 
 License
 ------------------------------------------------------------------------------

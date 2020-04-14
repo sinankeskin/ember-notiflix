@@ -83,7 +83,7 @@ export default class NotifyComponent extends Component {
 
   _displayNotify() {
     if (this.options) {
-      this.notiflix.notifyMerge(this.options);
+      this.notiflix._notifyMerge(this.options);
     }
 
     this.notiflix.notify(this.type, this.message, this.onClick);
