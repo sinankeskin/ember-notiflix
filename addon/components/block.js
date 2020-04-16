@@ -38,7 +38,7 @@ export default class BlockComponent extends Component {
    * @argument type
    * @type string
    */
-  @computed('args.type')
+  @computed('_type', 'args.type')
   get type() {
     return this.args.type || this._type;
   }
