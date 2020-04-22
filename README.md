@@ -50,54 +50,7 @@ ENV['ember-notiflix'] = {
   };
 ```
 
-In your code, you can override the initial global settings via merge functions in any time.
-
-> **WARNING**: All merge functions will be private in next minor version (2.3.0). Please use @options instead. 
-
-### Merge
-##### Base - ( You can change the type with one of these values: notify, report, loading, confirm )
-``` javascript
-this.notiflix.merge('notify', {
-  width: '300px',
-  borderRadius: '6px'
-});
-```
-##### Notify
-``` javascript
-this.notiflix.notifyMerge({
-  width: '300px',
-  borderRadius: '6px'
-});
-```
-##### Report
-``` javascript
-this.notiflix.reportMerge({
-  width: '300px',
-  borderRadius: '6px'
-});
-```
-##### Loading
-``` javascript
-this.notiflix.loadingMerge({
-  width: '300px',
-  borderRadius: '6px'
-});
-```
-##### Confirm
-``` javascript
-this.notiflix.confirmMerge({
-  customSvgUrl: 'https://cdn.shopify.com/s/files/1/0496/1029/files/Freesample.svg?5153',
-  svgSize: '80px'
-});
-```
-##### Block
-``` javascript
-this.notiflix.blockMerge({
-  width: '300px',
-  borderRadius: '6px'
-});
-```
-
+> **WARNING**: All merge functions private now. Please use @options instead. 
 
 Usage
 ------------------------------------------------------------------------------
@@ -362,6 +315,7 @@ TODO
 - [X] Added brand new block components
 - [X] Added @options for components and functions
 - [X] Added merge functions deprecations message
+- [X] Merge functions private now
 
 License
 ------------------------------------------------------------------------------

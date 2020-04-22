@@ -45,6 +45,86 @@ export default class NotiflixService extends Service {
     this.notiflix.Confirm.Init(this.config['confirm'] || {});
     this.notiflix.Block.Init(this.config['block'] || {});
   }
+
+  /**
+   * Base merge function for override initial settings.
+   *
+   * @private
+   * @method merge
+   * @param {'notify'|'report'|'loading'|'confirm'|'block'} type Type of function to call
+   * @param {object} options Options to override
+   */
+  _merge(type, options) {
+    switch (type) {
+      case 'notify':
+        this._notifyMerge(options);
+        break;
+      case 'report':
+        this._reportMerge(options);
+        break;
+      case 'loading':
+        this._loadingMerge(options);
+        break;
+      case 'confirm':
+        this._confirmMerge(options);
+        break;
+      case 'block':
+        this._blockMerge(options);
+        break;
+      default:
+        break;
+    }
+  }
+  /**
+   * Notify functionality only merge function for override initial settings.
+   *
+   * @private
+   * @method _notifyMerge
+   * @param {object} options Options to override
+   */
+  _notifyMerge(options) {
+    this.notiflix.Notify.Merge(options);
+  }
+  /**
+   * Report functionality only merge function for override initial settings.
+   *
+   * @private
+   * @method _reportMerge
+   * @param {object} options Options to override
+   */
+  _reportMerge(options) {
+    this.notiflix.Report.Merge(options);
+  }
+  /**
+   * Loading functionality only merge function for override initial settings.
+   *
+   * @private
+   * @method _loadingMerge
+   * @param {object} options Options to override
+   */
+  _loadingMerge(options) {
+    this.notiflix.Loading.Merge(options);
+  }
+  /**
+   * Confirm functionality only merge function for override initial settings.
+   *
+   * @private
+   * @method _confirmMerge
+   * @param {object} options Options to override
+   */
+  _confirmMerge(options) {
+    this.notiflix.Confirm.Merge(options);
+  }
+  /**
+   * Block functionality only merge function for override initial settings.
+   *
+   * @private
+   * @method _blockMerge
+   * @param {object} options Options to override
+   */
+  _blockMerge(options) {
+    this.notiflix.Block.Merge(options);
+  }
   /**
    * Base notify function.
    *

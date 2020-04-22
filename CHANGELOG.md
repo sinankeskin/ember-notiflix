@@ -1,6 +1,9 @@
 # Changelog
 All notable changes will be documented in this file.
 
+[2.3.0] - 2020-04-22
+* All merge functions private now.
+
 [2.2.0] - 2020-04-13
 * Added individual options for merge. In component invoke simply use @options parameter for merge options.
 * Ex: <ReportInfo @options={{hash svgSize=0}} />
