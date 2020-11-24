@@ -1,7 +1,8 @@
 /** @documenter yuidoc */
-import { inject as service } from '@ember/service';
-import { computed } from '@ember/object';
+import { computed, set } from '@ember/object';
+
 import Component from '@glimmer/component';
+import { inject as service } from '@ember/service';
 
 /**
  * Loading component
@@ -66,7 +67,7 @@ export default class LoadingComponent extends Component {
   constructor() {
     super(...arguments);
 
-    this._type = arguments[2] || 'standard';
+    set(this, '_type', arguments[2] || 'standard');
 
     this._displayLoading();
   }

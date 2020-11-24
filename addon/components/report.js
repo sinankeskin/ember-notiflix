@@ -1,7 +1,8 @@
 /** @documenter yuidoc */
-import { inject as service } from '@ember/service';
-import { computed } from '@ember/object';
+import { computed, set } from '@ember/object';
+
 import Component from '@glimmer/component';
+import { inject as service } from '@ember/service';
 
 /**
  * Report component
@@ -98,7 +99,7 @@ export default class ReportComponent extends Component {
   constructor() {
     super(...arguments);
 
-    this._type = arguments[2] || 'success';
+    set(this, '_type', arguments[2] || 'success');
 
     this._displayReport();
   }
