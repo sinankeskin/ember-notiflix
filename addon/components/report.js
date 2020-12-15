@@ -1,8 +1,7 @@
 /** @documenter yuidoc */
-import { computed, set } from '@ember/object';
-
 import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
+import { set } from '@ember/object';
 
 /**
  * Report component
@@ -39,7 +38,6 @@ export default class ReportComponent extends Component {
    * @argument type
    * @type string
    */
-  @computed('_type', 'args.type')
   get type() {
     return this.args.type || this._type;
   }
@@ -49,7 +47,6 @@ export default class ReportComponent extends Component {
    * @argument title
    * @type string
    */
-  @computed('args.title')
   get title() {
     return this.args.title || '';
   }
@@ -59,7 +56,6 @@ export default class ReportComponent extends Component {
    * @argument message
    * @type string
    */
-  @computed('args.message')
   get message() {
     return this.args.message || '';
   }
@@ -71,7 +67,6 @@ export default class ReportComponent extends Component {
    * @argument btnText
    * @type string
    */
-  @computed('args.btnText')
   get btnText() {
     return this.args.btnText || 'OK';
   }
@@ -81,7 +76,6 @@ export default class ReportComponent extends Component {
    * @argument onClick
    * @type function
    */
-  @computed('args.onClick')
   get onClick() {
     return this.args.onClick;
   }
@@ -91,7 +85,6 @@ export default class ReportComponent extends Component {
    * @argument options
    * @type object
    */
-  @computed('args.options')
   get options() {
     return this.args.options;
   }

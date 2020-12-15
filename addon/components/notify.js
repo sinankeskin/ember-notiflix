@@ -1,8 +1,7 @@
 /** @documenter yuidoc */
-import { computed, set } from '@ember/object';
-
 import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
+import { set } from '@ember/object';
 
 /**
  * Notify component
@@ -39,7 +38,6 @@ export default class NotifyComponent extends Component {
    * @argument type
    * @type string
    */
-  @computed('_type', 'args.type')
   get type() {
     return this.args.type || this._type;
   }
@@ -49,7 +47,6 @@ export default class NotifyComponent extends Component {
    * @argument message
    * @type string
    */
-  @computed('args.message')
   get message() {
     return this.args.message || '';
   }
@@ -59,7 +56,6 @@ export default class NotifyComponent extends Component {
    * @argument onClick
    * @type function
    */
-  @computed('args.onClick')
   get onClick() {
     return this.args.onClick;
   }
@@ -69,7 +65,6 @@ export default class NotifyComponent extends Component {
    * @argument options
    * @type object
    */
-  @computed('args.options')
   get options() {
     return this.args.options;
   }

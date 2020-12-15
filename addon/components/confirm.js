@@ -1,7 +1,6 @@
 /** @documenter yuidoc */
-import { inject as service } from '@ember/service';
-import { computed } from '@ember/object';
 import Component from '@glimmer/component';
+import { inject as service } from '@ember/service';
 
 /**
  * Confirm component
@@ -34,7 +33,6 @@ export default class ConfirmComponent extends Component {
    * @argument title
    * @type string
    */
-  @computed('args.title')
   get title() {
     return this.args.title || '';
   }
@@ -44,7 +42,6 @@ export default class ConfirmComponent extends Component {
    * @argument message
    * @type string
    */
-  @computed('args.message')
   get message() {
     return this.args.message || '';
   }
@@ -54,7 +51,6 @@ export default class ConfirmComponent extends Component {
    * @argument okBtnText
    * @type string
    */
-  @computed('args.okBtnText')
   get okBtnText() {
     return this.args.okBtnText || '';
   }
@@ -64,7 +60,6 @@ export default class ConfirmComponent extends Component {
    * @argument cancelBtnText
    * @type string
    */
-  @computed('args.cancelBtnText')
   get cancelBtnText() {
     return this.args.cancelBtnText || '';
   }
@@ -74,7 +69,6 @@ export default class ConfirmComponent extends Component {
    * @argument okClick
    * @type function
    */
-  @computed('args.okClick')
   get okClick() {
     return this.args.okClick;
   }
@@ -84,7 +78,6 @@ export default class ConfirmComponent extends Component {
    * @argument cancelClick
    * @type function
    */
-  @computed('args.cancelClick')
   get cancelClick() {
     return this.args.cancelClick;
   }
@@ -94,7 +87,6 @@ export default class ConfirmComponent extends Component {
    * @argument options
    * @type object
    */
-  @computed('args.options')
   get options() {
     return this.args.options;
   }

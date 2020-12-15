@@ -1,7 +1,6 @@
-import { getOwner } from '@ember/application';
-import { computed } from '@ember/object';
-import { assert } from '@ember/debug';
 import Service from '@ember/service';
+import { assert } from '@ember/debug';
+import { getOwner } from '@ember/application';
 
 /**
  * Notiflix service
@@ -25,7 +24,6 @@ import Service from '@ember/service';
 export default class NotiflixService extends Service {
   notiflix = null;
 
-  @computed
   get config() {
     const config = getOwner(this).resolveRegistration('config:environment') || {};
 
