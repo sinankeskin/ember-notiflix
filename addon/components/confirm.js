@@ -1,5 +1,6 @@
 /** @documenter yuidoc */
 import Component from '@glimmer/component';
+import { cached } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 
 /**
@@ -33,6 +34,7 @@ export default class ConfirmComponent extends Component {
    * @argument title
    * @type string
    */
+  @cached
   get title() {
     return this.args.title || '';
   }
@@ -42,6 +44,7 @@ export default class ConfirmComponent extends Component {
    * @argument message
    * @type string
    */
+  @cached
   get message() {
     return this.args.message || '';
   }
@@ -51,6 +54,7 @@ export default class ConfirmComponent extends Component {
    * @argument okBtnText
    * @type string
    */
+  @cached
   get okBtnText() {
     return this.args.okBtnText || '';
   }
@@ -60,6 +64,7 @@ export default class ConfirmComponent extends Component {
    * @argument cancelBtnText
    * @type string
    */
+  @cached
   get cancelBtnText() {
     return this.args.cancelBtnText || '';
   }
@@ -69,6 +74,7 @@ export default class ConfirmComponent extends Component {
    * @argument okClick
    * @type function
    */
+  @cached
   get okClick() {
     return this.args.okClick;
   }
@@ -78,6 +84,7 @@ export default class ConfirmComponent extends Component {
    * @argument cancelClick
    * @type function
    */
+  @cached
   get cancelClick() {
     return this.args.cancelClick;
   }
@@ -87,6 +94,7 @@ export default class ConfirmComponent extends Component {
    * @argument options
    * @type object
    */
+  @cached
   get options() {
     return this.args.options;
   }

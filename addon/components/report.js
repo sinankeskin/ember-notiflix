@@ -1,5 +1,6 @@
 /** @documenter yuidoc */
 import Component from '@glimmer/component';
+import { cached } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 import { set } from '@ember/object';
 
@@ -38,6 +39,7 @@ export default class ReportComponent extends Component {
    * @argument type
    * @type string
    */
+  @cached
   get type() {
     return this.args.type || this._type;
   }
@@ -47,6 +49,7 @@ export default class ReportComponent extends Component {
    * @argument title
    * @type string
    */
+  @cached
   get title() {
     return this.args.title || '';
   }
@@ -56,6 +59,7 @@ export default class ReportComponent extends Component {
    * @argument message
    * @type string
    */
+  @cached
   get message() {
     return this.args.message || '';
   }
@@ -67,6 +71,7 @@ export default class ReportComponent extends Component {
    * @argument btnText
    * @type string
    */
+  @cached
   get btnText() {
     return this.args.btnText || 'OK';
   }
@@ -76,6 +81,7 @@ export default class ReportComponent extends Component {
    * @argument onClick
    * @type function
    */
+  @cached
   get onClick() {
     return this.args.onClick;
   }
@@ -85,6 +91,7 @@ export default class ReportComponent extends Component {
    * @argument options
    * @type object
    */
+  @cached
   get options() {
     return this.args.options;
   }

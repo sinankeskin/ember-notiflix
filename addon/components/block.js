@@ -1,5 +1,6 @@
 /** @documenter yuidoc */
 import Component from '@glimmer/component';
+import { cached } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 import { set } from '@ember/object';
 
@@ -38,6 +39,7 @@ export default class BlockComponent extends Component {
    * @argument type
    * @type string
    */
+  @cached
   get type() {
     return this.args.type || this._type;
   }
@@ -47,6 +49,7 @@ export default class BlockComponent extends Component {
    * @argument elements
    * @type string
    */
+  @cached
   get elements() {
     return this.args.elements || '';
   }
@@ -56,6 +59,7 @@ export default class BlockComponent extends Component {
    * @argument message
    * @type string
    */
+  @cached
   get message() {
     return this.args.message || '';
   }
@@ -65,6 +69,7 @@ export default class BlockComponent extends Component {
    * @argument options
    * @type object
    */
+  @cached
   get options() {
     return this.args.options;
   }
