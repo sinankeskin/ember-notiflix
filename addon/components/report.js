@@ -109,6 +109,12 @@ export default class ReportComponent extends Component {
       this.notiflix._reportMerge(this.options);
     }
 
-    this.notiflix.report(this.type, this.title, this.message, this.btnText, this.onClick);
+    this.notiflix.report(
+      this.type,
+      this.title,
+      this.message,
+      this.btnText,
+      this.onClick
+    );
   }
 }

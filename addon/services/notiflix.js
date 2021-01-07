@@ -25,7 +25,8 @@ export default class NotiflixService extends Service {
   notiflix = null;
 
   get config() {
-    const config = getOwner(this).resolveRegistration('config:environment') || {};
+    const config =
+      getOwner(this).resolveRegistration('config:environment') || {};
 
     return config['ember-notiflix'] || {};
   }
@@ -35,7 +36,10 @@ export default class NotiflixService extends Service {
 
     this.notiflix = this.notiflix || (window ? window.Notiflix : null);
 
-    assert("Seems like Notiflix library couldn't bind to the window object. Try npm install.", this.notiflix != null);
+    assert(
+      "Seems like Notiflix library couldn't bind to the window object. Try npm install.",
+      this.notiflix != null
+    );
 
     this.notiflix.Notify.Init(this.config['notify'] || {});
     this.notiflix.Report.Init(this.config['report'] || {});
@@ -481,12 +485,27 @@ export default class NotiflixService extends Service {
    * @param {function} cancelClick cancelClick callback function
    * @param {object} options Options to override
    */
-  confirm(title, message, okBtnText, cancelBtnText, okClick, cancelClick, options) {
+  confirm(
+    title,
+    message,
+    okBtnText,
+    cancelBtnText,
+    okClick,
+    cancelClick,
+    options
+  ) {
     if (options) {
       this.notiflix.Confirm.Merge(options);
     }
 
-    this.notiflix.Confirm.Show(title, message, okBtnText, cancelBtnText, okClick, cancelClick);
+    this.notiflix.Confirm.Show(
+      title,
+      message,
+      okBtnText,
+      cancelBtnText,
+      okClick,
+      cancelClick
+    );
   }
   /**
    * Base block function.
