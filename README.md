@@ -1,5 +1,4 @@
-ember-notiflix
-==============================================================================
+# ember-notiflix
 
 This addon provides all Notiflix functionalities (notify, report, loading and confirm) and [Notiflix](https://www.notiflix.com/) is a pure JavaScript notification library with no dependency.
 
@@ -15,23 +14,19 @@ export default class MyComponent extends Component {
 }
 ```
 
+## Compatibility
 
-Compatibility
-------------------------------------------------------------------------------
+- Ember.js v3.16 or above
+- Ember CLI v2.13 or above
+- Node.js v10 or above
 
-* Ember.js v3.16 or above
-* Ember CLI v2.13 or above
-* Node.js v10 or above
-
-
-Installation
-------------------------------------------------------------------------------
+## Installation
 
 ```
 ember install ember-notiflix
 ```
-Configuration
-------------------------------------------------------------------------------
+
+## Configuration
 
 You can change all initial global configuration settings via `config/environment.js` file. Notice that seperate notify, report, loading and confirm sections.
 
@@ -39,285 +34,391 @@ Please check the [Notiflix documentation](https://www.notiflix.com/documentation
 
 ```javascript
 ENV['ember-notiflix'] = {
-    notify: {},
-    report: {},
-    loading: {
-      customSvgUrl: 'https://cdn.shopify.com/s/files/1/0496/1029/files/Freesample.svg?5153',
-      svgSize: '80px'
-    },
-    confirm: {},
-    block: {}
-  };
+  notify: {},
+  report: {},
+  loading: {
+    customSvgUrl:
+      'https://cdn.shopify.com/s/files/1/0496/1029/files/Freesample.svg?5153',
+    svgSize: '80px',
+  },
+  confirm: {},
+  block: {},
+};
 ```
 
-> **WARNING**: All merge functions private now. Please use @options instead. 
+> **WARNING**: All merge functions private now. Please use @options instead.
 
-Usage
-------------------------------------------------------------------------------
+## Usage
 
 ### Notify
+
 ##### Base - ( You can change the type with one of these values: success[default], failure, warning, info )
-``` handlebars
+
+```handlebars
 {{!--
     Since Ember 3.4 we can create a component without a dash in name,
     all "-base" named components are deprecated now.
 --}}
 <Notify @type="success" @message="Success" @onClick={{fn this.showAlert "Message"}} @options={{hash svgSize=0}} />
 ```
-``` javascript
+
+```javascript
 this.notiflix.notify(type, message, callback, options);
 ```
 
 ##### Success
-``` handlebars
+
+```handlebars
 <NotifySuccess @message="Success" @onClick={{fn this.showAlert "Message"}} @options={{hash svgSize=0}} />
 ```
-``` javascript
+
+```javascript
 this.notiflix.notifySuccess(message, callback, options);
 ```
 
 ##### Failure
-``` handlebars
+
+```handlebars
 <NotifyFailure @message="Failure" @onClick={{fn this.showAlert "Message"}} @options={{hash svgSize=0}} />
 ```
-``` javascript
+
+```javascript
 this.notiflix.notifyFailure(message, callback, options);
 ```
 
 ##### Warning
-``` handlebars
+
+```handlebars
 <NotifyWarning @message="Warning" @onClick={{fn this.showAlert "Message"}} @options={{hash svgSize=0}} />
 ```
-``` javascript
+
+```javascript
 this.notiflix.notifyWarning(message, callback, options);
 ```
 
 ##### Info
-``` handlebars
+
+```handlebars
 <NotifyInfo @message="Info" @onClick={{fn this.showAlert "Message"}} @options={{hash svgSize=0}} />
 ```
-``` javascript
+
+```javascript
 this.notiflix.notifyInfo(message, callback, options);
 ```
 
 ### Report
+
 ##### Base - ( You can change the type with one of these values: success[default], failure, warning, info )
-``` handlebars
+
+```handlebars
 {{!--
     Since Ember 3.4 we can create a component without a dash in name,
     all "-base" named components are deprecated now.
 --}}
 <Report @type="success" @title="Success" @message="Message" @btnText="OK" @onClick={{fn this.showAlert "Message"}} @options={{hash svgSize=0}} />
 ```
-``` javascript
+
+```javascript
 this.notiflix.report(type, title, message, btnText, callback, options);
 ```
 
 ##### Success
-``` handlebars
+
+```handlebars
 <ReportSuccess @title="Success" @message="Message" @btnText="OK" @onClick={{fn this.showAlert "Message"}} @options={{hash svgSize=0}} />
 ```
-``` javascript
+
+```javascript
 this.notiflix.reportSuccess(title, message, btnText, callback, options);
 ```
 
 ##### Failure
-``` handlebars
+
+```handlebars
 <ReportFailure @title="Failure" @message="Message" @btnText="OK" @onClick={{fn this.showAlert "Message"}} @options={{hash svgSize=0}} />
 ```
-``` javascript
+
+```javascript
 this.notiflix.reportFailure(title, message, btnText, callback, options);
 ```
+
 ##### Warning
-``` handlebars
+
+```handlebars
 <ReportWarning @title="Warning" @message="Message" @btnText="OK" @onClick={{fn this.showAlert "Message"}} @options={{hash svgSize=0}} />
 ```
-``` javascript
+
+```javascript
 this.notiflix.reportWarning(title, message, btnText, callback, options);
 ```
+
 ##### Info
-``` handlebars
+
+```handlebars
 <ReportInfo @title="Info" @message="Message" @btnText="OK" @onClick={{fn this.showAlert "Message"}} @options={{hash svgSize=0}} />
 ```
-``` javascript
+
+```javascript
 this.notiflix.reportInfo(title, message, btnText, callback, options);
 ```
 
 ### Loading
+
 ##### Base - ( You can change the type with one of these values: standard[default], hourglass, circle, arrows, dots, pulse )
-``` handlebars
+
+```handlebars
 {{!--
     Since Ember 3.4 we can create a component without a dash in name,
     all "-base" named components are deprecated now.
 --}}
 <Loading @type="standard" @message="Loading..." @options={{hash svgSize=0}} />
 ```
-``` javascript
+
+```javascript
 this.notiflix.loading(type, message, options);
 ```
+
 ##### Standard
-``` handlebars
+
+```handlebars
 <LoadingStandard @message="Loading..." @options={{hash svgSize=0}} />
 ```
-``` javascript
+
+```javascript
 this.notiflix.loadingStandard(message, options);
 ```
+
 ##### Hourglass
-``` handlebars
+
+```handlebars
 <LoadingHourglass @message="Loading..." @options={{hash svgSize=0}} />
 ```
-``` javascript
+
+```javascript
 this.notiflix.loadingHourglass(message, options);
 ```
+
 ##### Circle
-``` handlebars
+
+```handlebars
 <LoadingCircle @message="Loading..." @options={{hash svgSize=0}} />
 ```
-``` javascript
+
+```javascript
 this.notiflix.loadingCircle(message, options);
 ```
+
 ##### Arrows
-``` handlebars
+
+```handlebars
 <LoadingArrows @message="Loading..." @options={{hash svgSize=0}} />
 ```
-``` javascript
+
+```javascript
 this.notiflix.loadingArrows(message, options);
 ```
+
 ##### Dots
-``` handlebars
+
+```handlebars
 <LoadingDots @message="Loading..." @options={{hash svgSize=0}} />
 ```
-``` javascript
+
+```javascript
 this.notiflix.loadingDots(message, options);
 ```
+
 ##### Pulse
-``` handlebars
+
+```handlebars
 <LoadingPulse @message="Loading..." @options={{hash svgSize=0}} />
 ```
-``` javascript
+
+```javascript
 this.notiflix.loadingPulse(message, options);
 ```
+
 ##### Custom
-``` handlebars
+
+```handlebars
 <LoadingCustom @message="Loading..." @options={{hash svgSize=0}} />
 ```
-``` javascript
+
+```javascript
 this.notiflix.loadingCustom(message, options);
 ```
 
 You can change the message in the loading screen in any time.
-``` javascript
+
+```javascript
 this.notiflix.loadingChange('Loading... %20');
 ```
 
 You can remove the loading screen immediately,
-``` javascript
+
+```javascript
 this.notiflix.loadingRemove();
 ```
 
 or you can remove the loading screen after some delay.
-``` javascript
+
+```javascript
 this.notiflix.loadingRemove(600); // milliseconds
 ```
 
 ### Confirm
+
 ##### Base
-``` handlebars
+
+```handlebars
 {{!--
     Since Ember 3.4 we can create a component without a dash in name,
     all "-base" named components are deprecated now.
 --}}
-<Confirm @title="Notiflix Confirm" @message="Do you agree with me?" @okBtnText="Yes" @cancelBtnText="No" @onClick={{fn this.showAlert "Message"}} @options={{hash svgSize=0}} />
+<Confirm @title="Notiflix Confirm" @message="Do you agree with me?" @okBtnText="Yes" @cancelBtnText="No" @okClick={{fn this.showAlert "Message"}} @options={{hash svgSize=0}} />
 ```
-``` javascript
-this.notiflix.confirm(title, message, okBtnText, cancelBtnText, okClick, cancelClick, options);
+
+```javascript
+this.notiflix.confirm(
+  title,
+  message,
+  okBtnText,
+  cancelBtnText,
+  okClick,
+  cancelClick,
+  options
+);
+```
+
+##### Ask
+
+```handlebars
+{{!--
+    Since Ember 3.4 we can create a component without a dash in name,
+    all "-base" named components are deprecated now.
+--}}
+<Ask @title="'Where is Padmé?" @question="Is she safe? Is she all right?" @answer="It seems, in your anger, you killed her." @okBtnText="Answer" @cancelBtnText="Cancel" @okClick={{fn this.showAlert "Message"}} @options={{hash svgSize=0}} />
+```
+
+```javascript
+this.notiflix.confirm(
+  title,
+  question,
+  answer,
+  okBtnText,
+  cancelBtnText,
+  okClick,
+  cancelClick,
+  options
+);
 ```
 
 ### Block
+
 ##### Base - ( You can change the type with one of these values: standard[default], hourglass, circle, arrows, dots, pulse )
-``` handlebars
+
+```handlebars
 {{!--
     Since Ember 3.4 we can create a component without a dash in name,
     all "-base" named components are deprecated now.
 --}}
 <Block @type="standard" @elements="li.items" @message="Blocking..." @options={{hash svgSize=0}} />
 ```
-``` javascript
+
+```javascript
 this.notiflix.block(type, elements, message, options);
 ```
+
 ##### Standard
-``` handlebars
+
+```handlebars
 <BlockStandard @elements="li.items" @message="Blocking..." @options={{hash svgSize=0}} />
 ```
-``` javascript
+
+```javascript
 this.notiflix.blockStandard(elements, message, options);
 ```
+
 ##### Hourglass
-``` handlebars
+
+```handlebars
 <BlockHourglass @elements="li.items" @message="Blocking..." @options={{hash svgSize=0}} />
 ```
-``` javascript
+
+```javascript
 this.notiflix.blockHourglass(elements, message, options);
 ```
+
 ##### Circle
-``` handlebars
+
+```handlebars
 <BlockCircle @elements="li.items" @message="Blocking..." @options={{hash svgSize=0}} />
 ```
-``` javascript
+
+```javascript
 this.notiflix.blockCircle(elements, message, options);
 ```
+
 ##### Arrows
-``` handlebars
+
+```handlebars
 <BlockArrows @elements="li.items" @message="Blocking..." @options={{hash svgSize=0}} />
 ```
-``` javascript
+
+```javascript
 this.notiflix.blockArrows(elements, message, options);
 ```
+
 ##### Dots
-``` handlebars
+
+```handlebars
 <BlockDots @elements="li.items" @message="Blocking..." @options={{hash svgSize=0}} />
 ```
-``` javascript
+
+```javascript
 this.notiflix.blockDots(elements, message, options);
 ```
+
 ##### Pulse
-``` handlebars
+
+```handlebars
 <BlockPulse @elements="li.items" @message="Blocking..." @options={{hash svgSize=0}} />
 ```
-``` javascript
+
+```javascript
 this.notiflix.blockPulse(elements, message, options);
 ```
 
 You can remove the block screen immediately,
-``` javascript
+
+```javascript
 this.notiflix.blockRemove(elements);
 ```
 
 or you can remove the block screen after some delay.
-``` javascript
+
+```javascript
 this.notiflix.blockRemove(elements, 600); // milliseconds
 ```
 
-Contributing
-------------------------------------------------------------------------------
+## Contributing
 
 See the [Contributing](CONTRIBUTING.md) guide for details.
 
+## TODO
 
-TODO
-------------------------------------------------------------------------------
-- [X] Custom Loading
-- [X] Loading change
-- [X] Loading remove
-- [X] Initial settings
-- [X] Merge functions
-- [X] Confirm cancel callback (onClick changed to okClick)
-- [X] Added brand new block components
-- [X] Added @options for components and functions
-- [X] Added merge functions deprecations message
-- [X] Merge functions private now
+- [x] Custom Loading
+- [x] Loading change
+- [x] Loading remove
+- [x] Initial settings
+- [x] Merge functions
+- [x] Confirm cancel callback (onClick changed to okClick)
+- [x] Added brand new block components
+- [x] Added @options for components and functions
+- [x] Added merge functions deprecations message
+- [x] Merge functions private now
+- [x] Ask component added
 
-License
-------------------------------------------------------------------------------
+## License
 
 This project is licensed under the [MIT License](LICENSE.md).

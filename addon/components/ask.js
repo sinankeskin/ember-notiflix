@@ -4,22 +4,22 @@ import { cached } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 
 /**
- * Confirm component
+ * Ask component
  *
  * Usage:
  *
  * #### Handlebars
  * ```hbs
- * <Confirm @title="Notiflix Confirm" @message="Do you agree with me?" @okBtnText="Yes" @cancelBtnText="No" @okClick={{fn this.showAlert "Message"}} @cancelClick={{fn this.showAlert "Message"}} />
+ * <Ask @title="Where is Padmé?" @question="Is she safe? Is she all right?" @answer="It seems, in your anger, you killed her." @okBtnText="Answer" @cancelBtnText="Cancel" @okClick={{fn this.showAlert "Message"}} @cancelClick={{fn this.showAlert "Message"}} />
  * ```
  * #### JavaScript
  * ```js
- * this.notiflix.confirm(title, message, okBtnText, cancelBtnText, okClick, cancelClick);
+ * this.notiflix.ask(title, question, answer, okBtnText, cancelBtnText, okClick, cancelClick);
  * ```
- * @class Confirm
+ * @class Ask
  * @public
  */
-export default class ConfirmComponent extends Component {
+export default class AskComponent extends Component {
   /**
    * Injected Notiflix service
    *
@@ -29,7 +29,7 @@ export default class ConfirmComponent extends Component {
   @service
   notiflix;
   /**
-   * Title of the confirm
+   * Title of the question
    *
    * @argument title
    * @type string
@@ -39,14 +39,24 @@ export default class ConfirmComponent extends Component {
     return this.args.title || '';
   }
   /**
-   * Message to show
+   * Question to show
    *
-   * @argument message
+   * @argument question
    * @type string
    */
   @cached
-  get message() {
-    return this.args.message || '';
+  get question() {
+    return this.args.question || '';
+  }
+  /**
+   * Answer to show
+   *
+   * @argument answer
+   * @type string
+   */
+  @cached
+  get answer() {
+    return this.args.answer || '';
   }
   /**
    * OK button text
@@ -102,17 +112,18 @@ export default class ConfirmComponent extends Component {
   constructor() {
     super(...arguments);
 
-    this._displayConfirm();
+    this._displayAsk();
   }
 
-  _displayConfirm() {
+  _displayAsk() {
     if (this.options) {
       this.notiflix._confirmMerge(this.options);
     }
 
-    this.notiflix.confirm(
+    this.notiflix.ask(
       this.title,
-      this.message,
+      this.question,
+      this.answer,
       this.okBtnText,
       this.cancelBtnText,
       this.okClick,
