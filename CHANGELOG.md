@@ -2,6 +2,11 @@
 
 All notable changes will be documented in this file.
 
+[3.1.0] - 2021-01-23
+
+- Notiflix version updated to 2.7.0 (https://github.com/notiflix/Notiflix/releases/tag/v2.7.0)
+- Ask component added
+
 [2.4.0] - 2020-06-05
 
 - Notiflix version updated to 2.2.0 (https://github.com/notiflix/Notiflix/releases/tag/v2.2.0)
