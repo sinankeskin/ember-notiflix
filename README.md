@@ -28,7 +28,7 @@ ember install ember-notiflix
 
 ## Configuration
 
-You can change all initial global configuration settings via `config/environment.js` file. Notice that seperate notify, report, loading and confirm sections.
+You can change all initial global configuration settings via `config/environment.js` file. Notice that seperate notify, report, loading, confirm and block sections.
 
 Please check the [Notiflix documentation](https://www.notiflix.com/documentation) for more initial configuration details.
 
@@ -301,7 +301,7 @@ this.notiflix.confirm(
 ```
 
 ```javascript
-this.notiflix.confirm(
+this.notiflix.ask(
   title,
   question,
   answer,

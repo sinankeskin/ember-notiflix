@@ -508,6 +508,43 @@ export default class NotiflixService extends Service {
     );
   }
   /**
+   * Ask function
+   *
+   * @method ask
+   * @param {string} title Title of the question
+   * @param {string} question Question to show
+   * @param {string} answer Answer to show
+   * @param {string} okBtnText OK button text on screen
+   * @param {string} cancelBtnText Cancel button text on screen
+   * @param {function} okClick okClick callback function
+   * @param {function} cancelClick cancelClick callback function
+   * @param {object} options Options to override
+   */
+  ask(
+    title,
+    question,
+    answer,
+    okBtnText,
+    cancelBtnText,
+    okClick,
+    cancelClick,
+    options
+  ) {
+    if (options) {
+      this.notiflix.Confirm.Merge(options);
+    }
+
+    this.notiflix.Confirm.Ask(
+      title,
+      question,
+      answer,
+      okBtnText,
+      cancelBtnText,
+      okClick,
+      cancelClick
+    );
+  }
+  /**
    * Base block function.
    *
    * Default Type: 'standard'
