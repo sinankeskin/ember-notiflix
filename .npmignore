@@ -25,6 +25,9 @@
 /testem.js
 /tests/
 /yarn.lock
+/.prettierignore
+/.prettierrc.js
+/*.tgz
 .gitkeep
 
 # ember-try
@@ -32,3 +35,4 @@
 /bower.json.ember-try
 /package.json.ember-try
 /config/addon-docs.js
+/config/deploy.js
