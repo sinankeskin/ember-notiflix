@@ -38,7 +38,7 @@
   "dependencies": {
     "ember-cached-decorator-polyfill": "^0.1.1",
     "ember-cli-babel": "^7.23.1",
-    "ember-cli-htmlbars": "^5.6.4",
+    "ember-cli-htmlbars": "^5.6.5",
     "notiflix": "^2.7.0"
   },
   "devDependencies": {
