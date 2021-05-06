@@ -36,7 +36,7 @@
     "update:all": "run-s update deploy"
   },
   "dependencies": {
-    "ember-cli-babel": "^7.26.4",
+    "ember-cli-babel": "^7.26.5",
     "ember-cli-htmlbars": "^5.7.1",
     "notiflix": "^2.7.0",
     "tracked-toolbox": "^1.2.3"
