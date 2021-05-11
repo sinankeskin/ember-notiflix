@@ -98,6 +98,6 @@ export default class BlockComponent extends Component {
    * @param {number} delay, optional
    */
   remove(elements, delay) {
-    this.notiflix.Block.Remove(elements, delay);
+    this.notiflix.blockRemove(elements, delay);
   }
 }

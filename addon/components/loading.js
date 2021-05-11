@@ -87,7 +87,7 @@ export default class LoadingComponent extends Component {
    * @param {string} message
    */
   change(message) {
-    this.notiflix.Loading.Change(message);
+    this.notiflix.loadingChange(message);
   }
 
   /**
@@ -97,6 +97,6 @@ export default class LoadingComponent extends Component {
    * @param {number} delay, optional
    */
   remove(delay) {
-    this.notiflix.Loading.Remove(delay);
+    this.notiflix.loadingRemove(delay);
   }
 }

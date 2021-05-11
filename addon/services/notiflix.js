@@ -41,22 +41,22 @@ export default class NotiflixService extends Service {
       this.notiflix != null
     );
 
-    this.notiflix.Notify.Init(this.config['notify'] || {});
-    this.notiflix.Report.Init(this.config['report'] || {});
-    this.notiflix.Loading.Init(this.config['loading'] || {});
-    this.notiflix.Confirm.Init(this.config['confirm'] || {});
-    this.notiflix.Block.Init(this.config['block'] || {});
+    this.notiflix.Notify.init(this.config['notify'] || {});
+    this.notiflix.Report.init(this.config['report'] || {});
+    this.notiflix.Loading.init(this.config['loading'] || {});
+    this.notiflix.Confirm.init(this.config['confirm'] || {});
+    this.notiflix.Block.init(this.config['block'] || {});
   }
 
   /**
    * Base merge function for override initial settings.
    *
-   * @private
+   * @public
    * @method merge
    * @param {'notify'|'report'|'loading'|'confirm'|'block'} type Type of function to call
    * @param {object} options Options to override
    */
-  _merge(type, options) {
+  merge(type, options) {
     switch (type) {
       case 'notify':
         this._notifyMerge(options);
@@ -85,7 +85,7 @@ export default class NotiflixService extends Service {
    * @param {object} options Options to override
    */
   _notifyMerge(options) {
-    this.notiflix.Notify.Merge(options);
+    this.notiflix.Notify.merge(options);
   }
   /**
    * Report functionality only merge function for override initial settings.
@@ -95,7 +95,7 @@ export default class NotiflixService extends Service {
    * @param {object} options Options to override
    */
   _reportMerge(options) {
-    this.notiflix.Report.Merge(options);
+    this.notiflix.Report.merge(options);
   }
   /**
    * Loading functionality only merge function for override initial settings.
@@ -105,7 +105,7 @@ export default class NotiflixService extends Service {
    * @param {object} options Options to override
    */
   _loadingMerge(options) {
-    this.notiflix.Loading.Merge(options);
+    this.notiflix.Loading.merge(options);
   }
   /**
    * Confirm functionality only merge function for override initial settings.
@@ -115,7 +115,7 @@ export default class NotiflixService extends Service {
    * @param {object} options Options to override
    */
   _confirmMerge(options) {
-    this.notiflix.Confirm.Merge(options);
+    this.notiflix.Confirm.merge(options);
   }
   /**
    * Block functionality only merge function for override initial settings.
@@ -125,7 +125,7 @@ export default class NotiflixService extends Service {
    * @param {object} options Options to override
    */
   _blockMerge(options) {
-    this.notiflix.Block.Merge(options);
+    this.notiflix.Block.merge(options);
   }
   /**
    * Base notify function.
@@ -167,10 +167,10 @@ export default class NotiflixService extends Service {
    */
   notifySuccess(message, callback, options) {
     if (options) {
-      this.notiflix.Notify.Merge(options);
+      this._notifyMerge(options);
     }
 
-    this.notiflix.Notify.Success(message, callback);
+    this.notiflix.Notify.success(message, callback);
   }
   /**
    * Failure notify function
@@ -182,10 +182,10 @@ export default class NotiflixService extends Service {
    */
   notifyFailure(message, callback, options) {
     if (options) {
-      this.notiflix.Notify.Merge(options);
+      this._notifyMerge(options);
     }
 
-    this.notiflix.Notify.Failure(message, callback);
+    this.notiflix.Notify.failure(message, callback);
   }
   /**
    * Warning notify function
@@ -197,10 +197,10 @@ export default class NotiflixService extends Service {
    */
   notifyWarning(message, callback, options) {
     if (options) {
-      this.notiflix.Notify.Merge(options);
+      this._notifyMerge(options);
     }
 
-    this.notiflix.Notify.Warning(message, callback);
+    this.notiflix.Notify.warning(message, callback);
   }
   /**
    * Info notify function
@@ -212,10 +212,10 @@ export default class NotiflixService extends Service {
    */
   notifyInfo(message, callback, options) {
     if (options) {
-      this.notiflix.Notify.Merge(options);
+      this._notifyMerge(options);
     }
 
-    this.notiflix.Notify.Info(message, callback);
+    this.notiflix.Notify.info(message, callback);
   }
   /**
    * Base report function.
@@ -261,10 +261,10 @@ export default class NotiflixService extends Service {
    */
   reportSuccess(title, message, btnText, callback, options) {
     if (options) {
-      this.notiflix.Report.Merge(options);
+      this._reportMerge(options);
     }
 
-    this.notiflix.Report.Success(title, message, btnText, callback);
+    this.notiflix.Report.success(title, message, btnText, callback);
   }
   /**
    * Failure report function
@@ -278,10 +278,10 @@ export default class NotiflixService extends Service {
    */
   reportFailure(title, message, btnText, callback, options) {
     if (options) {
-      this.notiflix.Report.Merge(options);
+      this._reportMerge(options);
     }
 
-    this.notiflix.Report.Failure(title, message, btnText, callback);
+    this.notiflix.Report.failure(title, message, btnText, callback);
   }
   /**
    * Warning report function
@@ -295,10 +295,10 @@ export default class NotiflixService extends Service {
    */
   reportWarning(title, message, btnText, callback, options) {
     if (options) {
-      this.notiflix.Report.Merge(options);
+      this._reportMerge(options);
     }
 
-    this.notiflix.Report.Warning(title, message, btnText, callback);
+    this.notiflix.Report.warning(title, message, btnText, callback);
   }
   /**
    * Info report function
@@ -312,10 +312,10 @@ export default class NotiflixService extends Service {
    */
   reportInfo(title, message, btnText, callback, options) {
     if (options) {
-      this.notiflix.Report.Merge(options);
+      this._reportMerge(options);
     }
 
-    this.notiflix.Report.Info(title, message, btnText, callback);
+    this.notiflix.Report.info(title, message, btnText, callback);
   }
   /**
    * Base loading function.
@@ -364,10 +364,10 @@ export default class NotiflixService extends Service {
    */
   loadingStandard(message, options) {
     if (options) {
-      this.notiflix.Loading.Merge(options);
+      this._loadingMerge(options);
     }
 
-    this.notiflix.Loading.Standard(message);
+    this.notiflix.Loading.standard(message);
   }
   /**
    * Hourglass loading function
@@ -378,10 +378,10 @@ export default class NotiflixService extends Service {
    */
   loadingHourglass(message, options) {
     if (options) {
-      this.notiflix.Loading.Merge(options);
+      this._loadingMerge(options);
     }
 
-    this.notiflix.Loading.Hourglass(message);
+    this.notiflix.Loading.hourglass(message);
   }
   /**
    * Circle loading function
@@ -392,10 +392,10 @@ export default class NotiflixService extends Service {
    */
   loadingCircle(message, options) {
     if (options) {
-      this.notiflix.Loading.Merge(options);
+      this._loadingMerge(options);
     }
 
-    this.notiflix.Loading.Circle(message);
+    this.notiflix.Loading.circle(message);
   }
   /**
    * Arrows loading function
@@ -406,10 +406,10 @@ export default class NotiflixService extends Service {
    */
   loadingArrows(message, options) {
     if (options) {
-      this.notiflix.Loading.Merge(options);
+      this._loadingMerge(options);
     }
 
-    this.notiflix.Loading.Arrows(message);
+    this.notiflix.Loading.arrows(message);
   }
   /**
    * Dots loading function
@@ -420,10 +420,10 @@ export default class NotiflixService extends Service {
    */
   loadingDots(message, options) {
     if (options) {
-      this.notiflix.Loading.Merge(options);
+      this._loadingMerge(options);
     }
 
-    this.notiflix.Loading.Dots(message);
+    this.notiflix.Loading.dots(message);
   }
   /**
    * Pulse loading function
@@ -434,10 +434,10 @@ export default class NotiflixService extends Service {
    */
   loadingPulse(message, options) {
     if (options) {
-      this.notiflix.Loading.Merge(options);
+      this._loadingMerge(options);
     }
 
-    this.notiflix.Loading.Pulse(message);
+    this.notiflix.Loading.pulse(message);
   }
   /**
    * Custom loading function
@@ -448,10 +448,10 @@ export default class NotiflixService extends Service {
    */
   loadingCustom(message, options) {
     if (options) {
-      this.notiflix.Loading.Merge(options);
+      this._loadingMerge(options);
     }
 
-    this.notiflix.Loading.Custom(message);
+    this.notiflix.Loading.custom(message);
   }
   /**
    * Change loading function,
@@ -461,7 +461,7 @@ export default class NotiflixService extends Service {
    * @param {string} message Message to show
    */
   loadingChange(message) {
-    this.notiflix.Loading.Change(message);
+    this.notiflix.Loading.change(message);
   }
   /**
    * Remove loading function,
@@ -471,7 +471,7 @@ export default class NotiflixService extends Service {
    * @param {number} timeout
    */
   loadingRemove(timeout) {
-    this.notiflix.Loading.Remove(timeout);
+    this.notiflix.Loading.remove(timeout);
   }
   /**
    * Base confirm function
@@ -495,10 +495,10 @@ export default class NotiflixService extends Service {
     options
   ) {
     if (options) {
-      this.notiflix.Confirm.Merge(options);
+      this._confirmMerge(options);
     }
 
-    this.notiflix.Confirm.Show(
+    this.notiflix.Confirm.show(
       title,
       message,
       okBtnText,
@@ -531,10 +531,10 @@ export default class NotiflixService extends Service {
     options
   ) {
     if (options) {
-      this.notiflix.Confirm.Merge(options);
+      this._confirmMerge(options);
     }
 
-    this.notiflix.Confirm.Ask(
+    this.notiflix.Confirm.ask(
       title,
       question,
       answer,
@@ -590,10 +590,10 @@ export default class NotiflixService extends Service {
    */
   blockStandard(elements, message, options) {
     if (options) {
-      this.notiflix.Block.Merge(options);
+      this._blockMerge(options);
     }
 
-    this.notiflix.Block.Standard(elements, message);
+    this.notiflix.Block.standard(elements, message);
   }
   /**
    * Hourglass block function
@@ -604,10 +604,10 @@ export default class NotiflixService extends Service {
    */
   blockHourglass(elements, message, options) {
     if (options) {
-      this.notiflix.Block.Merge(options);
+      this._blockMerge(options);
     }
 
-    this.notiflix.Block.Hourglass(elements, message);
+    this.notiflix.Block.hourglass(elements, message);
   }
   /**
    * Circle block function
@@ -619,10 +619,10 @@ export default class NotiflixService extends Service {
    */
   blockCircle(elements, message, options) {
     if (options) {
-      this.notiflix.Block.Merge(options);
+      this._blockMerge(options);
     }
 
-    this.notiflix.Block.Circle(elements, message);
+    this.notiflix.Block.circle(elements, message);
   }
   /**
    * Arrows block function
@@ -634,10 +634,10 @@ export default class NotiflixService extends Service {
    */
   blockArrows(elements, message, options) {
     if (options) {
-      this.notiflix.Block.Merge(options);
+      this._blockMerge(options);
     }
 
-    this.notiflix.Block.Arrows(elements, message);
+    this.notiflix.Block.arrows(elements, message);
   }
   /**
    * Dots block function
@@ -649,10 +649,10 @@ export default class NotiflixService extends Service {
    */
   blockDots(elements, message, options) {
     if (options) {
-      this.notiflix.Block.Merge(options);
+      this._blockMerge(options);
     }
 
-    this.notiflix.Block.Dots(elements, message);
+    this.notiflix.Block.dots(elements, message);
   }
   /**
    * Pulse block function
@@ -664,10 +664,10 @@ export default class NotiflixService extends Service {
    */
   blockPulse(elements, message, options) {
     if (options) {
-      this.notiflix.Block.Merge(options);
+      this._blockMerge(options);
     }
 
-    this.notiflix.Block.Pulse(elements, message);
+    this.notiflix.Block.pulse(elements, message);
   }
   /**
    * Remove block function,
@@ -678,6 +678,6 @@ export default class NotiflixService extends Service {
    * @param {number} timeout
    */
   blockRemove(elements, timeout) {
-    this.notiflix.Block.Remove(elements, timeout);
+    this.notiflix.Block.remove(elements, timeout);
   }
 }
