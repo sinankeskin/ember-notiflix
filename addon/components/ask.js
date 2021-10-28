@@ -1,6 +1,6 @@
 /** @documenter yuidoc */
 import Component from '@glimmer/component';
-import { cached } from 'tracked-toolbox';
+import { cached } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 
 /**
