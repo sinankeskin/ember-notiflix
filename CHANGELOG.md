@@ -2,6 +2,15 @@
 
 All notable changes will be documented in this file.
 
+[3.6.0] - 2021-12-05
+
+- Prompt component added
+
+[3.5.0] - 2021-12-05
+
+- Emberjs source updated to v4
+- Notiflix version updated to 3.2.2 (https://github.com/notiflix/Notiflix/releases/tag/v3.2.2)
+
 [3.1.0] - 2021-01-23
 
 - Notiflix version updated to 2.7.0 (https://github.com/notiflix/Notiflix/releases/tag/v2.7.0)
