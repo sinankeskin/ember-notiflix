@@ -1,0 +1,101 @@
+{
+  "name": "ember-notiflix",
+  "version": "3.9.1",
+  "description": "Ember addon for Notiflix notification library.",
+  "keywords": [
+    "ember-addon"
+  ],
+  "repository": "https://github.com/sinankeskin/ember-notiflix",
+  "license": "MIT",
+  "author": "Sinan Keskin <sinan@kesk.in> (https://kesk.in)",
+  "files": [
+    "addon-main.cjs",
+    "dist"
+  ],
+  "scripts": {
+    "build": "rollup --config",
+    "lint": "concurrently 'npm:lint:*(!fix)' --names 'lint:'",
+    "lint:fix": "concurrently 'npm:lint:*:fix' --names 'fix:'",
+    "lint:hbs": "ember-template-lint . --no-error-on-unmatched-pattern",
+    "lint:js": "eslint . --cache",
+    "lint:hbs:fix": "ember-template-lint . --fix --no-error-on-unmatched-pattern",
+    "lint:js:fix": "eslint . --fix",
+    "start": "rollup --config --watch",
+    "test": "echo 'A v2 addon does not have tests, run tests in test-app'",
+    "prepack": "npm run build",
+    "prepare": "npm run build"
+  },
+  "dependencies": {
+    "@embroider/addon-shim": "^1.0.0",
+    "ember-cached-decorator-polyfill": "^1.0.1",
+    "notiflix": "^3.2.6"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.0",
+    "@babel/eslint-parser": "^7.18.2",
+    "@babel/plugin-proposal-class-properties": "^7.16.7",
+    "@babel/plugin-proposal-decorators": "^7.17.0",
+    "@babel/plugin-syntax-decorators": "^7.17.0",
+    "@embroider/addon-dev": "^3.0.0",
+    "@rollup/plugin-babel": "^5.3.0",
+    "concurrently": "^7.2.1",
+    "ember-template-lint": "^4.0.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-ember": "^10.5.8",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.5.1",
+    "rollup": "^2.67.0",
+    "rollup-plugin-copy": "^3.4.0"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "ember": {
+    "edition": "octane"
+  },
+  "ember-addon": {
+    "version": 2,
+    "type": "addon",
+    "main": "addon-main.cjs",
+    "app-js": {
+      "./components/ask.js": "./dist/_app_/components/ask.js",
+      "./components/block-arrows.js": "./dist/_app_/components/block-arrows.js",
+      "./components/block-circle.js": "./dist/_app_/components/block-circle.js",
+      "./components/block-dots.js": "./dist/_app_/components/block-dots.js",
+      "./components/block-hourglass.js": "./dist/_app_/components/block-hourglass.js",
+      "./components/block-pulse.js": "./dist/_app_/components/block-pulse.js",
+      "./components/block-standard.js": "./dist/_app_/components/block-standard.js",
+      "./components/block.js": "./dist/_app_/components/block.js",
+      "./components/confirm.js": "./dist/_app_/components/confirm.js",
+      "./components/loading-arrows.js": "./dist/_app_/components/loading-arrows.js",
+      "./components/loading-circle.js": "./dist/_app_/components/loading-circle.js",
+      "./components/loading-custom.js": "./dist/_app_/components/loading-custom.js",
+      "./components/loading-dots.js": "./dist/_app_/components/loading-dots.js",
+      "./components/loading-hourglass.js": "./dist/_app_/components/loading-hourglass.js",
+      "./components/loading-pulse.js": "./dist/_app_/components/loading-pulse.js",
+      "./components/loading-standard.js": "./dist/_app_/components/loading-standard.js",
+      "./components/loading.js": "./dist/_app_/components/loading.js",
+      "./components/notify-failure.js": "./dist/_app_/components/notify-failure.js",
+      "./components/notify-info.js": "./dist/_app_/components/notify-info.js",
+      "./components/notify-success.js": "./dist/_app_/components/notify-success.js",
+      "./components/notify-warning.js": "./dist/_app_/components/notify-warning.js",
+      "./components/notify.js": "./dist/_app_/components/notify.js",
+      "./components/prompt.js": "./dist/_app_/components/prompt.js",
+      "./components/report-failure.js": "./dist/_app_/components/report-failure.js",
+      "./components/report-info.js": "./dist/_app_/components/report-info.js",
+      "./components/report-success.js": "./dist/_app_/components/report-success.js",
+      "./components/report-warning.js": "./dist/_app_/components/report-warning.js",
+      "./components/report.js": "./dist/_app_/components/report.js"
+    }
+  },
+  "exports": {
+    ".": "./dist/index.js",
+    "./*": "./dist/*.js",
+    "./addon-main.js": "./addon-main.cjs"
+  },
+  "peerDependencies": {
+    "ember-source": "^3.28.0 || ^4.0.0"
+  }
+}

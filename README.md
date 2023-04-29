@@ -16,9 +16,9 @@ export default class MyComponent extends Component {
 
 ## Compatibility
 
-* Ember.js v3.28 or above
-* Ember CLI v3.28 or above
-* Node.js v14 or above
+- Ember.js v3.28 or above
+- Ember CLI v3.28 or above
+- Node.js v14 or above
 
 ## Installation
 
@@ -55,11 +55,16 @@ ENV['ember-notiflix'] = {
 ##### Base - ( You can change the type with one of these values: success[default], failure, warning, info )
 
 ```handlebars
-{{!--
+{{!
     Since Ember 3.4 we can create a component without a dash in name,
     all "-base" named components are deprecated now.
---}}
-<Notify @type="success" @message="Success" @onClick={{fn this.showAlert "Message"}} @options={{hash svgSize=0}} />
+}}
+<Notify
+  @type='success'
+  @message='Success'
+  @onClick={{fn this.showAlert 'Message'}}
+  @options={{hash svgSize=0}}
+/>
 ```
 
 ```javascript
@@ -69,7 +74,11 @@ this.notiflix.notify(type, message, callback, options);
 ##### Success
 
 ```handlebars
-<NotifySuccess @message="Success" @onClick={{fn this.showAlert "Message"}} @options={{hash svgSize=0}} />
+<NotifySuccess
+  @message='Success'
+  @onClick={{fn this.showAlert 'Message'}}
+  @options={{hash svgSize=0}}
+/>
 ```
 
 ```javascript
@@ -79,7 +88,11 @@ this.notiflix.notifySuccess(message, callback, options);
 ##### Failure
 
 ```handlebars
-<NotifyFailure @message="Failure" @onClick={{fn this.showAlert "Message"}} @options={{hash svgSize=0}} />
+<NotifyFailure
+  @message='Failure'
+  @onClick={{fn this.showAlert 'Message'}}
+  @options={{hash svgSize=0}}
+/>
 ```
 
 ```javascript
@@ -89,7 +102,11 @@ this.notiflix.notifyFailure(message, callback, options);
 ##### Warning
 
 ```handlebars
-<NotifyWarning @message="Warning" @onClick={{fn this.showAlert "Message"}} @options={{hash svgSize=0}} />
+<NotifyWarning
+  @message='Warning'
+  @onClick={{fn this.showAlert 'Message'}}
+  @options={{hash svgSize=0}}
+/>
 ```
 
 ```javascript
@@ -99,7 +116,11 @@ this.notiflix.notifyWarning(message, callback, options);
 ##### Info
 
 ```handlebars
-<NotifyInfo @message="Info" @onClick={{fn this.showAlert "Message"}} @options={{hash svgSize=0}} />
+<NotifyInfo
+  @message='Info'
+  @onClick={{fn this.showAlert 'Message'}}
+  @options={{hash svgSize=0}}
+/>
 ```
 
 ```javascript
@@ -111,11 +132,18 @@ this.notiflix.notifyInfo(message, callback, options);
 ##### Base - ( You can change the type with one of these values: success[default], failure, warning, info )
 
 ```handlebars
-{{!--
+{{!
     Since Ember 3.4 we can create a component without a dash in name,
     all "-base" named components are deprecated now.
---}}
-<Report @type="success" @title="Success" @message="Message" @btnText="OK" @onClick={{fn this.showAlert "Message"}} @options={{hash svgSize=0}} />
+}}
+<Report
+  @type='success'
+  @title='Success'
+  @message='Message'
+  @btnText='OK'
+  @onClick={{fn this.showAlert 'Message'}}
+  @options={{hash svgSize=0}}
+/>
 ```
 
 ```javascript
@@ -125,7 +153,13 @@ this.notiflix.report(type, title, message, btnText, callback, options);
 ##### Success
 
 ```handlebars
-<ReportSuccess @title="Success" @message="Message" @btnText="OK" @onClick={{fn this.showAlert "Message"}} @options={{hash svgSize=0}} />
+<ReportSuccess
+  @title='Success'
+  @message='Message'
+  @btnText='OK'
+  @onClick={{fn this.showAlert 'Message'}}
+  @options={{hash svgSize=0}}
+/>
 ```
 
 ```javascript
@@ -135,7 +169,13 @@ this.notiflix.reportSuccess(title, message, btnText, callback, options);
 ##### Failure
 
 ```handlebars
-<ReportFailure @title="Failure" @message="Message" @btnText="OK" @onClick={{fn this.showAlert "Message"}} @options={{hash svgSize=0}} />
+<ReportFailure
+  @title='Failure'
+  @message='Message'
+  @btnText='OK'
+  @onClick={{fn this.showAlert 'Message'}}
+  @options={{hash svgSize=0}}
+/>
 ```
 
 ```javascript
@@ -145,7 +185,13 @@ this.notiflix.reportFailure(title, message, btnText, callback, options);
 ##### Warning
 
 ```handlebars
-<ReportWarning @title="Warning" @message="Message" @btnText="OK" @onClick={{fn this.showAlert "Message"}} @options={{hash svgSize=0}} />
+<ReportWarning
+  @title='Warning'
+  @message='Message'
+  @btnText='OK'
+  @onClick={{fn this.showAlert 'Message'}}
+  @options={{hash svgSize=0}}
+/>
 ```
 
 ```javascript
@@ -155,7 +201,13 @@ this.notiflix.reportWarning(title, message, btnText, callback, options);
 ##### Info
 
 ```handlebars
-<ReportInfo @title="Info" @message="Message" @btnText="OK" @onClick={{fn this.showAlert "Message"}} @options={{hash svgSize=0}} />
+<ReportInfo
+  @title='Info'
+  @message='Message'
+  @btnText='OK'
+  @onClick={{fn this.showAlert 'Message'}}
+  @options={{hash svgSize=0}}
+/>
 ```
 
 ```javascript
@@ -167,11 +219,11 @@ this.notiflix.reportInfo(title, message, btnText, callback, options);
 ##### Base - ( You can change the type with one of these values: standard[default], hourglass, circle, arrows, dots, pulse )
 
 ```handlebars
-{{!--
+{{!
     Since Ember 3.4 we can create a component without a dash in name,
     all "-base" named components are deprecated now.
---}}
-<Loading @type="standard" @message="Loading..." @options={{hash svgSize=0}} />
+}}
+<Loading @type='standard' @message='Loading...' @options={{hash svgSize=0}} />
 ```
 
 ```javascript
@@ -181,7 +233,7 @@ this.notiflix.loading(type, message, options);
 ##### Standard
 
 ```handlebars
-<LoadingStandard @message="Loading..." @options={{hash svgSize=0}} />
+<LoadingStandard @message='Loading...' @options={{hash svgSize=0}} />
 ```
 
 ```javascript
@@ -191,7 +243,7 @@ this.notiflix.loadingStandard(message, options);
 ##### Hourglass
 
 ```handlebars
-<LoadingHourglass @message="Loading..." @options={{hash svgSize=0}} />
+<LoadingHourglass @message='Loading...' @options={{hash svgSize=0}} />
 ```
 
 ```javascript
@@ -201,7 +253,7 @@ this.notiflix.loadingHourglass(message, options);
 ##### Circle
 
 ```handlebars
-<LoadingCircle @message="Loading..." @options={{hash svgSize=0}} />
+<LoadingCircle @message='Loading...' @options={{hash svgSize=0}} />
 ```
 
 ```javascript
@@ -211,7 +263,7 @@ this.notiflix.loadingCircle(message, options);
 ##### Arrows
 
 ```handlebars
-<LoadingArrows @message="Loading..." @options={{hash svgSize=0}} />
+<LoadingArrows @message='Loading...' @options={{hash svgSize=0}} />
 ```
 
 ```javascript
@@ -221,7 +273,7 @@ this.notiflix.loadingArrows(message, options);
 ##### Dots
 
 ```handlebars
-<LoadingDots @message="Loading..." @options={{hash svgSize=0}} />
+<LoadingDots @message='Loading...' @options={{hash svgSize=0}} />
 ```
 
 ```javascript
@@ -231,7 +283,7 @@ this.notiflix.loadingDots(message, options);
 ##### Pulse
 
 ```handlebars
-<LoadingPulse @message="Loading..." @options={{hash svgSize=0}} />
+<LoadingPulse @message='Loading...' @options={{hash svgSize=0}} />
 ```
 
 ```javascript
@@ -241,7 +293,7 @@ this.notiflix.loadingPulse(message, options);
 ##### Custom
 
 ```handlebars
-<LoadingCustom @message="Loading..." @options={{hash svgSize=0}} />
+<LoadingCustom @message='Loading...' @options={{hash svgSize=0}} />
 ```
 
 ```javascript
@@ -271,11 +323,18 @@ this.notiflix.loadingRemove(600); // milliseconds
 ##### Base
 
 ```handlebars
-{{!--
+{{!
     Since Ember 3.4 we can create a component without a dash in name,
     all "-base" named components are deprecated now.
---}}
-<Confirm @title="Notiflix Confirm" @message="Do you agree with me?" @okBtnText="Yes" @cancelBtnText="No" @okClick={{fn this.showAlert "Message"}} @options={{hash svgSize=0}} />
+}}
+<Confirm
+  @title='Notiflix Confirm'
+  @message='Do you agree with me?'
+  @okBtnText='Yes'
+  @cancelBtnText='No'
+  @okClick={{fn this.showAlert 'Message'}}
+  @options={{hash svgSize=0}}
+/>
 ```
 
 ```javascript
@@ -293,11 +352,19 @@ this.notiflix.confirm(
 ##### Ask
 
 ```handlebars
-{{!--
+{{!
     Since Ember 3.4 we can create a component without a dash in name,
     all "-base" named components are deprecated now.
---}}
-<Ask @title="'Where is Padmé?" @question="Is she safe? Is she all right?" @answer="It seems, in your anger, you killed her." @okBtnText="Answer" @cancelBtnText="Cancel" @okClick={{fn this.showAlert "Message"}} @options={{hash svgSize=0}} />
+}}
+<Ask
+  @title="'Where is Padmé?"
+  @question='Is she safe? Is she all right?'
+  @answer='It seems, in your anger, you killed her.'
+  @okBtnText='Answer'
+  @cancelBtnText='Cancel'
+  @okClick={{fn this.showAlert 'Message'}}
+  @options={{hash svgSize=0}}
+/>
 ```
 
 ```javascript
@@ -318,11 +385,16 @@ this.notiflix.ask(
 ##### Base - ( You can change the type with one of these values: standard[default], hourglass, circle, arrows, dots, pulse )
 
 ```handlebars
-{{!--
+{{!
     Since Ember 3.4 we can create a component without a dash in name,
     all "-base" named components are deprecated now.
---}}
-<Block @type="standard" @elements="li.items" @message="Blocking..." @options={{hash svgSize=0}} />
+}}
+<Block
+  @type='standard'
+  @elements='li.items'
+  @message='Blocking...'
+  @options={{hash svgSize=0}}
+/>
 ```
 
 ```javascript
@@ -332,7 +404,11 @@ this.notiflix.block(type, elements, message, options);
 ##### Standard
 
 ```handlebars
-<BlockStandard @elements="li.items" @message="Blocking..." @options={{hash svgSize=0}} />
+<BlockStandard
+  @elements='li.items'
+  @message='Blocking...'
+  @options={{hash svgSize=0}}
+/>
 ```
 
 ```javascript
@@ -342,7 +418,11 @@ this.notiflix.blockStandard(elements, message, options);
 ##### Hourglass
 
 ```handlebars
-<BlockHourglass @elements="li.items" @message="Blocking..." @options={{hash svgSize=0}} />
+<BlockHourglass
+  @elements='li.items'
+  @message='Blocking...'
+  @options={{hash svgSize=0}}
+/>
 ```
 
 ```javascript
@@ -352,7 +432,11 @@ this.notiflix.blockHourglass(elements, message, options);
 ##### Circle
 
 ```handlebars
-<BlockCircle @elements="li.items" @message="Blocking..." @options={{hash svgSize=0}} />
+<BlockCircle
+  @elements='li.items'
+  @message='Blocking...'
+  @options={{hash svgSize=0}}
+/>
 ```
 
 ```javascript
@@ -362,7 +446,11 @@ this.notiflix.blockCircle(elements, message, options);
 ##### Arrows
 
 ```handlebars
-<BlockArrows @elements="li.items" @message="Blocking..." @options={{hash svgSize=0}} />
+<BlockArrows
+  @elements='li.items'
+  @message='Blocking...'
+  @options={{hash svgSize=0}}
+/>
 ```
 
 ```javascript
@@ -372,7 +460,11 @@ this.notiflix.blockArrows(elements, message, options);
 ##### Dots
 
 ```handlebars
-<BlockDots @elements="li.items" @message="Blocking..." @options={{hash svgSize=0}} />
+<BlockDots
+  @elements='li.items'
+  @message='Blocking...'
+  @options={{hash svgSize=0}}
+/>
 ```
 
 ```javascript
@@ -382,7 +474,11 @@ this.notiflix.blockDots(elements, message, options);
 ##### Pulse
 
 ```handlebars
-<BlockPulse @elements="li.items" @message="Blocking..." @options={{hash svgSize=0}} />
+<BlockPulse
+  @elements='li.items'
+  @message='Blocking...'
+  @options={{hash svgSize=0}}
+/>
 ```
 
 ```javascript
